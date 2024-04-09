@@ -6,16 +6,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let menu = NSMenuItem()
-        menu.submenu = NSMenu()
-        menu.submenu?.addItem(
-            NSMenuItem(
-                title: "Quit",
-                action: #selector(
-                    NSApplication.terminate(_:)
-                ),
-                keyEquivalent: "q"
-            )
+        let quit = NSMenuItem(
+            title: "Quit",
+            action: #selector(
+                NSApplication.terminate(_:)
+            ),
+            keyEquivalent:"q"
         )
+        quit.keyEquivalentModifierMask = .command
+        
+        
+        menu.submenu = NSMenu()
+        menu.submenu?.addItem(quit)
         
         let mainMenu = NSMenu(title: "MacVE")
         mainMenu.addItem(menu)
