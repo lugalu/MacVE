@@ -1,15 +1,20 @@
 //Created by Lugalu on 08/04/24.
 
-import Cocoa
+import AppKit
 
-@main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        let menu = NSMenuItem()
+        menu.submenu = NSMenu()
+        menu.submenu?.addItem(NSMenuItem(title: "Quit",
+                                         action: #selector(NSApplication.terminate(_:)),
+                                         keyEquivalent: "q")
+        )
+        let mainMenu = NSMenu(title: "MacVE")
+        mainMenu.addItem(menu)
+        
+        NSApplication.shared.mainMenu = mainMenu
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
