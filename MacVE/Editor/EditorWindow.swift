@@ -3,7 +3,7 @@
 import AppKit
 import AVKit
 
-class EditorWindow: NSWindow{
+class EditorWindow: NSWindow {   
     init () {
         super.init(
             contentRect: NSRect(

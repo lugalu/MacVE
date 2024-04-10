@@ -2,7 +2,7 @@
 
 import AppKit
 
-class EditorMainViewController: NSViewController{
+class EditorMainViewController: NSViewController {
     
     init(){
         super.init(nibName: nil, bundle: nil)
