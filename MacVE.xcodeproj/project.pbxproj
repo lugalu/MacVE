@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090DF5E62C12829600912575 /* Playback in Frameworks */ = {isa = PBXBuildFile; productRef = 090DF5E52C12829600912575 /* Playback */; };
+		090DF5E82C12829A00912575 /* Track in Frameworks */ = {isa = PBXBuildFile; productRef = 090DF5E72C12829A00912575 /* Track */; };
 		0967BE1F2BC5BB4A00AD4C29 /* EditorWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967BE1E2BC5BB4A00AD4C29 /* EditorWindow.swift */; };
 		0967BE212BC5C21B00AD4C29 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967BE202BC5C21B00AD4C29 /* EditorViewController.swift */; };
 		09CB8D132BC6067600E97BFA /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CB8D122BC6067600E97BFA /* EditorView.swift */; };
@@ -17,9 +19,7 @@
 		09E153392BC4B9E100356C91 /* MacVEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E153382BC4B9E100356C91 /* MacVEUITests.swift */; };
 		09E1533B2BC4B9E100356C91 /* MacVEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1533A2BC4B9E100356C91 /* MacVEUITestsLaunchTests.swift */; };
 		09E153482BC4BC3700356C91 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E153472BC4BC3700356C91 /* main.swift */; };
-		09F404B22C127C4E0033A148 /* Playback in Frameworks */ = {isa = PBXBuildFile; productRef = 09F404B12C127C4E0033A148 /* Playback */; };
-		09F404B92C127DFB0033A148 /* Navigator in Frameworks */ = {isa = PBXBuildFile; productRef = 09F404B82C127DFB0033A148 /* Navigator */; };
-		09F404BB2C127DFE0033A148 /* Track in Frameworks */ = {isa = PBXBuildFile; productRef = 09F404BA2C127DFE0033A148 /* Track */; };
+		09F404BE2C1282540033A148 /* Disk in Frameworks */ = {isa = PBXBuildFile; productRef = 09F404BD2C1282540033A148 /* Disk */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090DF5E92C12835E00912575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0967BE1E2BC5BB4A00AD4C29 /* EditorWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorWindow.swift; sourceTree = "<group>"; };
 		0967BE202BC5C21B00AD4C29 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		09CB8D122BC6067600E97BFA /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
@@ -64,9 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09F404BB2C127DFE0033A148 /* Track in Frameworks */,
-				09F404B92C127DFB0033A148 /* Navigator in Frameworks */,
-				09F404B22C127C4E0033A148 /* Playback in Frameworks */,
+				090DF5E82C12829A00912575 /* Track in Frameworks */,
+				09F404BE2C1282540033A148 /* Disk in Frameworks */,
+				090DF5E62C12829600912575 /* Playback in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +95,7 @@
 				09E153202BC4B9E000356C91 /* Assets.xcassets */,
 				09E153252BC4B9E000356C91 /* MacVE.entitlements */,
 				09E153472BC4BC3700356C91 /* main.swift */,
+				090DF5E92C12835E00912575 /* Info.plist */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -183,9 +185,9 @@
 			);
 			name = MacVE;
 			packageProductDependencies = (
-				09F404B12C127C4E0033A148 /* Playback */,
-				09F404B82C127DFB0033A148 /* Navigator */,
-				09F404BA2C127DFE0033A148 /* Track */,
+				09F404BD2C1282540033A148 /* Disk */,
+				090DF5E52C12829600912575 /* Playback */,
+				090DF5E72C12829A00912575 /* Track */,
 			);
 			productName = MacVE;
 			productReference = 09E153192BC4B9DE00356C91 /* MacVE.app */;
@@ -477,7 +479,8 @@
 				DEVELOPMENT_TEAM = G8P85U8XP2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MacVE/Info.plist;
+				INFOPLIST_FILE = MacVE/System/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mac Video Editor";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (c) 2024 Luiz José de Araújo Filho";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -505,7 +508,8 @@
 				DEVELOPMENT_TEAM = G8P85U8XP2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MacVE/Info.plist;
+				INFOPLIST_FILE = MacVE/System/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mac Video Editor";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright (c) 2024 Luiz José de Araújo Filho";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -650,17 +654,17 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		09F404B12C127C4E0033A148 /* Playback */ = {
+		090DF5E52C12829600912575 /* Playback */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Playback;
 		};
-		09F404B82C127DFB0033A148 /* Navigator */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Navigator;
-		};
-		09F404BA2C127DFE0033A148 /* Track */ = {
+		090DF5E72C12829A00912575 /* Track */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Track;
+		};
+		09F404BD2C1282540033A148 /* Disk */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Disk;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

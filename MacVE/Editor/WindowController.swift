@@ -4,7 +4,7 @@ import AppKit
 
 import Playback
 import Track
-import Navigator
+import Disk
 
 class WindowController: NSWindowController{
     
