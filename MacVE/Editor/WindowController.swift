@@ -1,7 +1,10 @@
 //Created by Lugalu on 08/04/24.
 
 import AppKit
-import AVKit
+
+import Playback
+import Track
+import Navigator
 
 class WindowController: NSWindowController{
     
