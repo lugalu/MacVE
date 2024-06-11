@@ -14,9 +14,11 @@
 		09DF210D2C18E83200F046A9 /* MacVETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF210C2C18E83200F046A9 /* MacVETests.swift */; };
 		09DF21172C18E83200F046A9 /* MacVEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21162C18E83200F046A9 /* MacVEUITests.swift */; };
 		09DF21192C18E83200F046A9 /* MacVEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21182C18E83200F046A9 /* MacVEUITestsLaunchTests.swift */; };
-		09DF212C2C18EAE900F046A9 /* Disk in Frameworks */ = {isa = PBXBuildFile; productRef = 09DF212B2C18EAE900F046A9 /* Disk */; };
-		09DF212E2C18EAEC00F046A9 /* Editor in Frameworks */ = {isa = PBXBuildFile; productRef = 09DF212D2C18EAEC00F046A9 /* Editor */; };
-		09DF21302C18EAEF00F046A9 /* Playback in Frameworks */ = {isa = PBXBuildFile; productRef = 09DF212F2C18EAEF00F046A9 /* Playback */; };
+		09DF21352C18F1C800F046A9 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21342C18F1C800F046A9 /* PlaybackView.swift */; };
+		09DF21382C18F2BF00F046A9 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21372C18F2BF00F046A9 /* VideoPlayer.swift */; };
+		09DF213A2C18F56400F046A9 /* PlaybackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21392C18F56400F046A9 /* PlaybackModel.swift */; };
+		09DF213C2C18FF0000F046A9 /* PlaybackControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF213B2C18FF0000F046A9 /* PlaybackControls.swift */; };
+		09DF213F2C19072400F046A9 /* ResolutionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF213E2C19072400F046A9 /* ResolutionMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +50,11 @@
 		09DF21122C18E83200F046A9 /* MacVEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacVEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DF21162C18E83200F046A9 /* MacVEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEUITests.swift; sourceTree = "<group>"; };
 		09DF21182C18E83200F046A9 /* MacVEUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		09DF21272C18EA6900F046A9 /* Playback */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Playback; sourceTree = SOURCE_ROOT; };
-		09DF21282C18EA7E00F046A9 /* Disk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Disk; sourceTree = SOURCE_ROOT; };
-		09DF21292C18EAA100F046A9 /* Editor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Editor; sourceTree = SOURCE_ROOT; };
+		09DF21342C18F1C800F046A9 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
+		09DF21372C18F2BF00F046A9 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		09DF21392C18F56400F046A9 /* PlaybackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackModel.swift; sourceTree = "<group>"; };
+		09DF213B2C18FF0000F046A9 /* PlaybackControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControls.swift; sourceTree = "<group>"; };
+		09DF213E2C19072400F046A9 /* ResolutionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09DF212C2C18EAE900F046A9 /* Disk in Frameworks */,
-				09DF21302C18EAEF00F046A9 /* Playback in Frameworks */,
-				09DF212E2C18EAEC00F046A9 /* Editor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +106,10 @@
 		09DF20F92C18E83000F046A9 /* MacVE */ = {
 			isa = PBXGroup;
 			children = (
+				09DF21332C18F1BE00F046A9 /* Disk */,
+				09DF21322C18F1B900F046A9 /* Editor */,
+				09DF21312C18F1B500F046A9 /* Playback */,
 				09DF21262C18EA4800F046A9 /* System */,
-				09DF21252C18EA3C00F046A9 /* Modules */,
 				09DF20FC2C18E83000F046A9 /* ContentView.swift */,
 				09DF21002C18E83100F046A9 /* Preview Content */,
 			);
@@ -138,16 +141,6 @@
 			path = MacVEUITests;
 			sourceTree = "<group>";
 		};
-		09DF21252C18EA3C00F046A9 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				09DF21292C18EAA100F046A9 /* Editor */,
-				09DF21282C18EA7E00F046A9 /* Disk */,
-				09DF21272C18EA6900F046A9 /* Playback */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
 		09DF21262C18EA4800F046A9 /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +156,48 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		09DF21312C18F1B500F046A9 /* Playback */ = {
+			isa = PBXGroup;
+			children = (
+				09DF213D2C19071200F046A9 /* SubViews */,
+				09DF21362C18F26200F046A9 /* Bridging */,
+				09DF21342C18F1C800F046A9 /* PlaybackView.swift */,
+				09DF21392C18F56400F046A9 /* PlaybackModel.swift */,
+			);
+			path = Playback;
+			sourceTree = "<group>";
+		};
+		09DF21322C18F1B900F046A9 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		09DF21332C18F1BE00F046A9 /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Disk;
+			sourceTree = "<group>";
+		};
+		09DF21362C18F26200F046A9 /* Bridging */ = {
+			isa = PBXGroup;
+			children = (
+				09DF21372C18F2BF00F046A9 /* VideoPlayer.swift */,
+			);
+			path = Bridging;
+			sourceTree = "<group>";
+		};
+		09DF213D2C19071200F046A9 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				09DF213B2C18FF0000F046A9 /* PlaybackControls.swift */,
+				09DF213E2C19072400F046A9 /* ResolutionMenu.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +217,6 @@
 			);
 			name = MacVE;
 			packageProductDependencies = (
-				09DF212B2C18EAE900F046A9 /* Disk */,
-				09DF212D2C18EAEC00F046A9 /* Editor */,
-				09DF212F2C18EAEF00F046A9 /* Playback */,
 			);
 			productName = MacVE;
 			productReference = 09DF20F72C18E83000F046A9 /* MacVE.app */;
@@ -300,7 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09DF213C2C18FF0000F046A9 /* PlaybackControls.swift in Sources */,
 				09DF20FD2C18E83000F046A9 /* ContentView.swift in Sources */,
+				09DF213F2C19072400F046A9 /* ResolutionMenu.swift in Sources */,
+				09DF213A2C18F56400F046A9 /* PlaybackModel.swift in Sources */,
+				09DF21382C18F2BF00F046A9 /* VideoPlayer.swift in Sources */,
+				09DF21352C18F1C800F046A9 /* PlaybackView.swift in Sources */,
 				09DF20FB2C18E83000F046A9 /* MacVEApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,21 +659,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		09DF212B2C18EAE900F046A9 /* Disk */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Disk;
-		};
-		09DF212D2C18EAEC00F046A9 /* Editor */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Editor;
-		};
-		09DF212F2C18EAEF00F046A9 /* Playback */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Playback;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 09DF20EF2C18E83000F046A9 /* Project object */;
 }
