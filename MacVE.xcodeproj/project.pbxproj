@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09DF20FB2C18E83000F046A9 /* MacVEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF20FA2C18E83000F046A9 /* MacVEApp.swift */; };
+		09DF20FD2C18E83000F046A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF20FC2C18E83000F046A9 /* ContentView.swift */; };
+		09DF20FF2C18E83100F046A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DF20FE2C18E83100F046A9 /* Assets.xcassets */; };
+		09DF21022C18E83100F046A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DF21012C18E83100F046A9 /* Preview Assets.xcassets */; };
+		09DF210D2C18E83200F046A9 /* MacVETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF210C2C18E83200F046A9 /* MacVETests.swift */; };
+		09DF21172C18E83200F046A9 /* MacVEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21162C18E83200F046A9 /* MacVEUITests.swift */; };
+		09DF21192C18E83200F046A9 /* MacVEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21182C18E83200F046A9 /* MacVEUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09DF21092C18E83200F046A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09DF20EF2C18E83000F046A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09DF20F62C18E83000F046A9;
+			remoteInfo = MacVE;
+		};
+		09DF21132C18E83200F046A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09DF20EF2C18E83000F046A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09DF20F62C18E83000F046A9;
+			remoteInfo = MacVE;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09DF20F72C18E83000F046A9 /* MacVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09DF20FA2C18E83000F046A9 /* MacVEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEApp.swift; sourceTree = "<group>"; };
+		09DF20FC2C18E83000F046A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		09DF20FE2C18E83100F046A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		09DF21012C18E83100F046A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		09DF21032C18E83100F046A9 /* MacVE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacVE.entitlements; sourceTree = "<group>"; };
+		09DF21082C18E83200F046A9 /* MacVETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacVETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09DF210C2C18E83200F046A9 /* MacVETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVETests.swift; sourceTree = "<group>"; };
+		09DF21122C18E83200F046A9 /* MacVEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacVEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09DF21162C18E83200F046A9 /* MacVEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEUITests.swift; sourceTree = "<group>"; };
+		09DF21182C18E83200F046A9 /* MacVEUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09DF20F42C18E83000F046A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09DF21052C18E83200F046A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09DF210F2C18E83200F046A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09DF20EE2C18E83000F046A9 = {
+			isa = PBXGroup;
+			children = (
+				09DF20F92C18E83000F046A9 /* MacVE */,
+				09DF210B2C18E83200F046A9 /* MacVETests */,
+				09DF21152C18E83200F046A9 /* MacVEUITests */,
+				09DF20F82C18E83000F046A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		09DF20F82C18E83000F046A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09DF20F72C18E83000F046A9 /* MacVE.app */,
+				09DF21082C18E83200F046A9 /* MacVETests.xctest */,
+				09DF21122C18E83200F046A9 /* MacVEUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09DF20F92C18E83000F046A9 /* MacVE */ = {
+			isa = PBXGroup;
+			children = (
+				09DF20FA2C18E83000F046A9 /* MacVEApp.swift */,
+				09DF20FC2C18E83000F046A9 /* ContentView.swift */,
+				09DF20FE2C18E83100F046A9 /* Assets.xcassets */,
+				09DF21032C18E83100F046A9 /* MacVE.entitlements */,
+				09DF21002C18E83100F046A9 /* Preview Content */,
+			);
+			path = MacVE;
+			sourceTree = "<group>";
+		};
+		09DF21002C18E83100F046A9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				09DF21012C18E83100F046A9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		09DF210B2C18E83200F046A9 /* MacVETests */ = {
+			isa = PBXGroup;
+			children = (
+				09DF210C2C18E83200F046A9 /* MacVETests.swift */,
+			);
+			path = MacVETests;
+			sourceTree = "<group>";
+		};
+		09DF21152C18E83200F046A9 /* MacVEUITests */ = {
+			isa = PBXGroup;
+			children = (
+				09DF21162C18E83200F046A9 /* MacVEUITests.swift */,
+				09DF21182C18E83200F046A9 /* MacVEUITestsLaunchTests.swift */,
+			);
+			path = MacVEUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09DF20F62C18E83000F046A9 /* MacVE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09DF211C2C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVE" */;
+			buildPhases = (
+				09DF20F32C18E83000F046A9 /* Sources */,
+				09DF20F42C18E83000F046A9 /* Frameworks */,
+				09DF20F52C18E83000F046A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacVE;
+			productName = MacVE;
+			productReference = 09DF20F72C18E83000F046A9 /* MacVE.app */;
+			productType = "com.apple.product-type.application";
+		};
+		09DF21072C18E83200F046A9 /* MacVETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09DF211F2C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVETests" */;
+			buildPhases = (
+				09DF21042C18E83200F046A9 /* Sources */,
+				09DF21052C18E83200F046A9 /* Frameworks */,
+				09DF21062C18E83200F046A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09DF210A2C18E83200F046A9 /* PBXTargetDependency */,
+			);
+			name = MacVETests;
+			productName = MacVETests;
+			productReference = 09DF21082C18E83200F046A9 /* MacVETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		09DF21112C18E83200F046A9 /* MacVEUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09DF21222C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVEUITests" */;
+			buildPhases = (
+				09DF210E2C18E83200F046A9 /* Sources */,
+				09DF210F2C18E83200F046A9 /* Frameworks */,
+				09DF21102C18E83200F046A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09DF21142C18E83200F046A9 /* PBXTargetDependency */,
+			);
+			name = MacVEUITests;
+			productName = MacVEUITests;
+			productReference = 09DF21122C18E83200F046A9 /* MacVEUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09DF20EF2C18E83000F046A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					09DF20F62C18E83000F046A9 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					09DF21072C18E83200F046A9 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 09DF20F62C18E83000F046A9;
+					};
+					09DF21112C18E83200F046A9 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 09DF20F62C18E83000F046A9;
+					};
+				};
+			};
+			buildConfigurationList = 09DF20F22C18E83000F046A9 /* Build configuration list for PBXProject "MacVE" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09DF20EE2C18E83000F046A9;
+			productRefGroup = 09DF20F82C18E83000F046A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09DF20F62C18E83000F046A9 /* MacVE */,
+				09DF21072C18E83200F046A9 /* MacVETests */,
+				09DF21112C18E83200F046A9 /* MacVEUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09DF20F52C18E83000F046A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09DF21022C18E83100F046A9 /* Preview Assets.xcassets in Resources */,
+				09DF20FF2C18E83100F046A9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09DF21062C18E83200F046A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09DF21102C18E83200F046A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09DF20F32C18E83000F046A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09DF20FD2C18E83000F046A9 /* ContentView.swift in Sources */,
+				09DF20FB2C18E83000F046A9 /* MacVEApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09DF21042C18E83200F046A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09DF210D2C18E83200F046A9 /* MacVETests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09DF210E2C18E83200F046A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09DF21172C18E83200F046A9 /* MacVEUITests.swift in Sources */,
+				09DF21192C18E83200F046A9 /* MacVEUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09DF210A2C18E83200F046A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09DF20F62C18E83000F046A9 /* MacVE */;
+			targetProxy = 09DF21092C18E83200F046A9 /* PBXContainerItemProxy */;
+		};
+		09DF21142C18E83200F046A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09DF20F62C18E83000F046A9 /* MacVE */;
+			targetProxy = 09DF21132C18E83200F046A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09DF211A2C18E83200F046A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		09DF211B2C18E83200F046A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		09DF211D2C18E83200F046A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacVE/MacVE.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacVE/Preview Content\"";
+				DEVELOPMENT_TEAM = G8P85U8XP2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		09DF211E2C18E83200F046A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacVE/MacVE.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacVE/Preview Content\"";
+				DEVELOPMENT_TEAM = G8P85U8XP2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		09DF21202C18E83200F046A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G8P85U8XP2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacVE.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MacVE";
+			};
+			name = Debug;
+		};
+		09DF21212C18E83200F046A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G8P85U8XP2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacVE.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MacVE";
+			};
+			name = Release;
+		};
+		09DF21232C18E83200F046A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G8P85U8XP2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVEUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacVE;
+			};
+			name = Debug;
+		};
+		09DF21242C18E83200F046A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G8P85U8XP2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVEUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MacVE;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09DF20F22C18E83000F046A9 /* Build configuration list for PBXProject "MacVE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09DF211A2C18E83200F046A9 /* Debug */,
+				09DF211B2C18E83200F046A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09DF211C2C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09DF211D2C18E83200F046A9 /* Debug */,
+				09DF211E2C18E83200F046A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09DF211F2C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09DF21202C18E83200F046A9 /* Debug */,
+				09DF21212C18E83200F046A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09DF21222C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVEUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09DF21232C18E83200F046A9 /* Debug */,
+				09DF21242C18E83200F046A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09DF20EF2C18E83000F046A9 /* Project object */;
+}
