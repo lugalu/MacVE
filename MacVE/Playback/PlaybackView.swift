@@ -6,10 +6,13 @@ import AVKit
 struct PlaybackView<T: PlaybackModelProtocol>: View {
     @EnvironmentObject var viewModel: T
     
+
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8){
             
-            VideoPlayer(player: $viewModel.player)
+            VideoPlayer<T>()
+                .environmentObject(viewModel)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
             
             makeControls()
@@ -24,13 +27,15 @@ struct PlaybackView<T: PlaybackModelProtocol>: View {
                 //TODO: remove this and insert Spacer!
                 Button(action: {
                     let url = URL(filePath: "video2.mp4", directoryHint: .checkFileSystem, relativeTo: .downloadsDirectory)
-                    let player = AVPlayer(url: url)
-                    viewModel.player = player
+                    let playerItem = AVPlayerItem(url: url)
+                    viewModel.player.replaceCurrentItem(with: playerItem)
                 }, label: {
                     Text("Load Video")
                 })
                 
-                PlaybackControls(isPlaying: $viewModel.isPlaying)
+                PlaybackControls(isPlaying: viewModel.isPlaying,
+                                 action: viewModel.playback)
+                VolumeControl(sliderValue: $viewModel.volumeLevel)
                 
                 ResolutionMenu(resolution: $viewModel.resolution)
                 

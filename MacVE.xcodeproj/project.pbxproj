@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096A4F8B2C1BAE680030D1A4 /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */; };
+		096A4F8D2C1BBA2C0030D1A4 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */; };
+		096A4F8F2C1BC53A0030D1A4 /* VideoCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8E2C1BC53A0030D1A4 /* VideoCompositor.swift */; };
 		09DF20FB2C18E83000F046A9 /* MacVEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF20FA2C18E83000F046A9 /* MacVEApp.swift */; };
-		09DF20FD2C18E83000F046A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF20FC2C18E83000F046A9 /* ContentView.swift */; };
 		09DF20FF2C18E83100F046A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DF20FE2C18E83100F046A9 /* Assets.xcassets */; };
 		09DF21022C18E83100F046A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DF21012C18E83100F046A9 /* Preview Assets.xcassets */; };
 		09DF210D2C18E83200F046A9 /* MacVETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF210C2C18E83200F046A9 /* MacVETests.swift */; };
@@ -39,9 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControl.swift; sourceTree = "<group>"; };
+		096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
+		096A4F8E2C1BC53A0030D1A4 /* VideoCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompositor.swift; sourceTree = "<group>"; };
 		09DF20F72C18E83000F046A9 /* MacVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DF20FA2C18E83000F046A9 /* MacVEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEApp.swift; sourceTree = "<group>"; };
-		09DF20FC2C18E83000F046A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		09DF20FE2C18E83100F046A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09DF21012C18E83100F046A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09DF21032C18E83100F046A9 /* MacVE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacVE.entitlements; sourceTree = "<group>"; };
@@ -110,7 +114,6 @@
 				09DF21322C18F1B900F046A9 /* Editor */,
 				09DF21312C18F1B500F046A9 /* Playback */,
 				09DF21262C18EA4800F046A9 /* System */,
-				09DF20FC2C18E83000F046A9 /* ContentView.swift */,
 				09DF21002C18E83100F046A9 /* Preview Content */,
 			);
 			path = MacVE;
@@ -187,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				09DF21372C18F2BF00F046A9 /* VideoPlayer.swift */,
+				096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */,
+				096A4F8E2C1BC53A0030D1A4 /* VideoCompositor.swift */,
 			);
 			path = Bridging;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			children = (
 				09DF213B2C18FF0000F046A9 /* PlaybackControls.swift */,
 				09DF213E2C19072400F046A9 /* ResolutionMenu.swift */,
+				096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -332,13 +338,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096A4F8B2C1BAE680030D1A4 /* VolumeControl.swift in Sources */,
 				09DF213C2C18FF0000F046A9 /* PlaybackControls.swift in Sources */,
-				09DF20FD2C18E83000F046A9 /* ContentView.swift in Sources */,
 				09DF213F2C19072400F046A9 /* ResolutionMenu.swift in Sources */,
 				09DF213A2C18F56400F046A9 /* PlaybackModel.swift in Sources */,
+				096A4F8D2C1BBA2C0030D1A4 /* VerticalSlider.swift in Sources */,
 				09DF21382C18F2BF00F046A9 /* VideoPlayer.swift in Sources */,
 				09DF21352C18F1C800F046A9 /* PlaybackView.swift in Sources */,
 				09DF20FB2C18E83000F046A9 /* MacVEApp.swift in Sources */,
+				096A4F8F2C1BC53A0030D1A4 /* VideoCompositor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

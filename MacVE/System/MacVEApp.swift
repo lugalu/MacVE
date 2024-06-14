@@ -6,7 +6,8 @@ import SwiftUI
 struct MacVEApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PlaybackView<PlaybackModel>()
+                .environmentObject(PlaybackModel())
                 .frame(minWidth: 1200, minHeight: 700)
         }
     }
