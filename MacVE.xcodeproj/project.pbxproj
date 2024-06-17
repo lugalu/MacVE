@@ -7,62 +7,80 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09E1531D2BC4B9DE00356C91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1531C2BC4B9DE00356C91 /* AppDelegate.swift */; };
-		09E1531F2BC4B9DE00356C91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1531E2BC4B9DE00356C91 /* ViewController.swift */; };
-		09E153212BC4B9E000356C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09E153202BC4B9E000356C91 /* Assets.xcassets */; };
-		09E1532F2BC4B9E100356C91 /* MacVETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1532E2BC4B9E100356C91 /* MacVETests.swift */; };
-		09E153392BC4B9E100356C91 /* MacVEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E153382BC4B9E100356C91 /* MacVEUITests.swift */; };
-		09E1533B2BC4B9E100356C91 /* MacVEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1533A2BC4B9E100356C91 /* MacVEUITestsLaunchTests.swift */; };
-		09E153482BC4BC3700356C91 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E153472BC4BC3700356C91 /* main.swift */; };
+		096A4F8B2C1BAE680030D1A4 /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */; };
+		096A4F8D2C1BBA2C0030D1A4 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */; };
+		096A4F8F2C1BC53A0030D1A4 /* VideoCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8E2C1BC53A0030D1A4 /* VideoCompositor.swift */; };
+		09DF20FB2C18E83000F046A9 /* MacVEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF20FA2C18E83000F046A9 /* MacVEApp.swift */; };
+		09DF20FF2C18E83100F046A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DF20FE2C18E83100F046A9 /* Assets.xcassets */; };
+		09DF21022C18E83100F046A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DF21012C18E83100F046A9 /* Preview Assets.xcassets */; };
+		09DF210D2C18E83200F046A9 /* MacVETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF210C2C18E83200F046A9 /* MacVETests.swift */; };
+		09DF21172C18E83200F046A9 /* MacVEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21162C18E83200F046A9 /* MacVEUITests.swift */; };
+		09DF21192C18E83200F046A9 /* MacVEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21182C18E83200F046A9 /* MacVEUITestsLaunchTests.swift */; };
+		09DF21352C18F1C800F046A9 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21342C18F1C800F046A9 /* PlaybackView.swift */; };
+		09DF21382C18F2BF00F046A9 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21372C18F2BF00F046A9 /* VideoPlayer.swift */; };
+		09DF213A2C18F56400F046A9 /* PlaybackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF21392C18F56400F046A9 /* PlaybackModel.swift */; };
+		09DF213C2C18FF0000F046A9 /* PlaybackControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF213B2C18FF0000F046A9 /* PlaybackControls.swift */; };
+		09DF213F2C19072400F046A9 /* ResolutionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF213E2C19072400F046A9 /* ResolutionMenu.swift */; };
+		09F33E9D2C1F50E3000FA92D /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F33E9C2C1F50E3000FA92D /* Math.swift */; };
+		09F33E9F2C1F5104000FA92D /* PlayerOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F33E9E2C1F5104000FA92D /* PlayerOperations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		09E1532B2BC4B9E000356C91 /* PBXContainerItemProxy */ = {
+		09DF21092C18E83200F046A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 09E153112BC4B9DE00356C91 /* Project object */;
+			containerPortal = 09DF20EF2C18E83000F046A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 09E153182BC4B9DE00356C91;
+			remoteGlobalIDString = 09DF20F62C18E83000F046A9;
 			remoteInfo = MacVE;
 		};
-		09E153352BC4B9E100356C91 /* PBXContainerItemProxy */ = {
+		09DF21132C18E83200F046A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 09E153112BC4B9DE00356C91 /* Project object */;
+			containerPortal = 09DF20EF2C18E83000F046A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 09E153182BC4B9DE00356C91;
+			remoteGlobalIDString = 09DF20F62C18E83000F046A9;
 			remoteInfo = MacVE;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09E153192BC4B9DE00356C91 /* MacVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		09E1531C2BC4B9DE00356C91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09E1531E2BC4B9DE00356C91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		09E153202BC4B9E000356C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		09E153252BC4B9E000356C91 /* MacVE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacVE.entitlements; sourceTree = "<group>"; };
-		09E1532A2BC4B9E000356C91 /* MacVETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacVETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		09E1532E2BC4B9E100356C91 /* MacVETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVETests.swift; sourceTree = "<group>"; };
-		09E153342BC4B9E100356C91 /* MacVEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacVEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		09E153382BC4B9E100356C91 /* MacVEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEUITests.swift; sourceTree = "<group>"; };
-		09E1533A2BC4B9E100356C91 /* MacVEUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		09E153472BC4BC3700356C91 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControl.swift; sourceTree = "<group>"; };
+		096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
+		096A4F8E2C1BC53A0030D1A4 /* VideoCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompositor.swift; sourceTree = "<group>"; };
+		09DF20F72C18E83000F046A9 /* MacVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09DF20FA2C18E83000F046A9 /* MacVEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEApp.swift; sourceTree = "<group>"; };
+		09DF20FE2C18E83100F046A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		09DF21012C18E83100F046A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		09DF21032C18E83100F046A9 /* MacVE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacVE.entitlements; sourceTree = "<group>"; };
+		09DF21082C18E83200F046A9 /* MacVETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacVETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09DF210C2C18E83200F046A9 /* MacVETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVETests.swift; sourceTree = "<group>"; };
+		09DF21122C18E83200F046A9 /* MacVEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacVEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09DF21162C18E83200F046A9 /* MacVEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEUITests.swift; sourceTree = "<group>"; };
+		09DF21182C18E83200F046A9 /* MacVEUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVEUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		09DF21342C18F1C800F046A9 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
+		09DF21372C18F2BF00F046A9 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		09DF21392C18F56400F046A9 /* PlaybackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackModel.swift; sourceTree = "<group>"; };
+		09DF213B2C18FF0000F046A9 /* PlaybackControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControls.swift; sourceTree = "<group>"; };
+		09DF213E2C19072400F046A9 /* ResolutionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionMenu.swift; sourceTree = "<group>"; };
+		09F33E9C2C1F50E3000FA92D /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		09F33E9E2C1F5104000FA92D /* PlayerOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerOperations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		09E153162BC4B9DE00356C91 /* Frameworks */ = {
+		09DF20F42C18E83000F046A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		09E153272BC4B9E000356C91 /* Frameworks */ = {
+		09DF21052C18E83200F046A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		09E153312BC4B9E100356C91 /* Frameworks */ = {
+		09DF210F2C18E83200F046A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,135 +90,218 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09E153102BC4B9DE00356C91 = {
+		09DF20EE2C18E83000F046A9 = {
 			isa = PBXGroup;
 			children = (
-				09E1531B2BC4B9DE00356C91 /* MacVE */,
-				09E1532D2BC4B9E100356C91 /* MacVETests */,
-				09E153372BC4B9E100356C91 /* MacVEUITests */,
-				09E1531A2BC4B9DE00356C91 /* Products */,
+				09DF20F92C18E83000F046A9 /* MacVE */,
+				09DF210B2C18E83200F046A9 /* MacVETests */,
+				09DF21152C18E83200F046A9 /* MacVEUITests */,
+				09DF20F82C18E83000F046A9 /* Products */,
+				09DF212A2C18EAE900F046A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		09E1531A2BC4B9DE00356C91 /* Products */ = {
+		09DF20F82C18E83000F046A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09E153192BC4B9DE00356C91 /* MacVE.app */,
-				09E1532A2BC4B9E000356C91 /* MacVETests.xctest */,
-				09E153342BC4B9E100356C91 /* MacVEUITests.xctest */,
+				09DF20F72C18E83000F046A9 /* MacVE.app */,
+				09DF21082C18E83200F046A9 /* MacVETests.xctest */,
+				09DF21122C18E83200F046A9 /* MacVEUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		09E1531B2BC4B9DE00356C91 /* MacVE */ = {
+		09DF20F92C18E83000F046A9 /* MacVE */ = {
 			isa = PBXGroup;
 			children = (
-				09E1531C2BC4B9DE00356C91 /* AppDelegate.swift */,
-				09E1531E2BC4B9DE00356C91 /* ViewController.swift */,
-				09E153202BC4B9E000356C91 /* Assets.xcassets */,
-				09E153252BC4B9E000356C91 /* MacVE.entitlements */,
-				09E153472BC4BC3700356C91 /* main.swift */,
+				09F33E9B2C1F50D6000FA92D /* Commons */,
+				09DF21332C18F1BE00F046A9 /* Disk */,
+				09DF21322C18F1B900F046A9 /* Editor */,
+				09DF21312C18F1B500F046A9 /* Playback */,
+				09DF21262C18EA4800F046A9 /* System */,
+				09DF21002C18E83100F046A9 /* Preview Content */,
 			);
 			path = MacVE;
 			sourceTree = "<group>";
 		};
-		09E1532D2BC4B9E100356C91 /* MacVETests */ = {
+		09DF21002C18E83100F046A9 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				09E1532E2BC4B9E100356C91 /* MacVETests.swift */,
+				09DF21012C18E83100F046A9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		09DF210B2C18E83200F046A9 /* MacVETests */ = {
+			isa = PBXGroup;
+			children = (
+				09DF210C2C18E83200F046A9 /* MacVETests.swift */,
 			);
 			path = MacVETests;
 			sourceTree = "<group>";
 		};
-		09E153372BC4B9E100356C91 /* MacVEUITests */ = {
+		09DF21152C18E83200F046A9 /* MacVEUITests */ = {
 			isa = PBXGroup;
 			children = (
-				09E153382BC4B9E100356C91 /* MacVEUITests.swift */,
-				09E1533A2BC4B9E100356C91 /* MacVEUITestsLaunchTests.swift */,
+				09DF21162C18E83200F046A9 /* MacVEUITests.swift */,
+				09DF21182C18E83200F046A9 /* MacVEUITestsLaunchTests.swift */,
 			);
 			path = MacVEUITests;
+			sourceTree = "<group>";
+		};
+		09DF21262C18EA4800F046A9 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				09DF20FA2C18E83000F046A9 /* MacVEApp.swift */,
+				09DF20FE2C18E83100F046A9 /* Assets.xcassets */,
+				09DF21032C18E83100F046A9 /* MacVE.entitlements */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		09DF212A2C18EAE900F046A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		09DF21312C18F1B500F046A9 /* Playback */ = {
+			isa = PBXGroup;
+			children = (
+				09DF213D2C19071200F046A9 /* SubViews */,
+				09DF21362C18F26200F046A9 /* Bridging */,
+				09DF21342C18F1C800F046A9 /* PlaybackView.swift */,
+				09DF21392C18F56400F046A9 /* PlaybackModel.swift */,
+			);
+			path = Playback;
+			sourceTree = "<group>";
+		};
+		09DF21322C18F1B900F046A9 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		09DF21332C18F1BE00F046A9 /* Disk */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Disk;
+			sourceTree = "<group>";
+		};
+		09DF21362C18F26200F046A9 /* Bridging */ = {
+			isa = PBXGroup;
+			children = (
+				09DF21372C18F2BF00F046A9 /* VideoPlayer.swift */,
+				096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */,
+				096A4F8E2C1BC53A0030D1A4 /* VideoCompositor.swift */,
+			);
+			path = Bridging;
+			sourceTree = "<group>";
+		};
+		09DF213D2C19071200F046A9 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				09DF213B2C18FF0000F046A9 /* PlaybackControls.swift */,
+				09DF213E2C19072400F046A9 /* ResolutionMenu.swift */,
+				096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		09F33E9B2C1F50D6000FA92D /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				09F33E9C2C1F50E3000FA92D /* Math.swift */,
+				09F33E9E2C1F5104000FA92D /* PlayerOperations.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		09E153182BC4B9DE00356C91 /* MacVE */ = {
+		09DF20F62C18E83000F046A9 /* MacVE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09E1533E2BC4B9E100356C91 /* Build configuration list for PBXNativeTarget "MacVE" */;
+			buildConfigurationList = 09DF211C2C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVE" */;
 			buildPhases = (
-				09E153152BC4B9DE00356C91 /* Sources */,
-				09E153162BC4B9DE00356C91 /* Frameworks */,
-				09E153172BC4B9DE00356C91 /* Resources */,
+				09DF20F32C18E83000F046A9 /* Sources */,
+				09DF20F42C18E83000F046A9 /* Frameworks */,
+				09DF20F52C18E83000F046A9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MacVE;
+			packageProductDependencies = (
+			);
 			productName = MacVE;
-			productReference = 09E153192BC4B9DE00356C91 /* MacVE.app */;
+			productReference = 09DF20F72C18E83000F046A9 /* MacVE.app */;
 			productType = "com.apple.product-type.application";
 		};
-		09E153292BC4B9E000356C91 /* MacVETests */ = {
+		09DF21072C18E83200F046A9 /* MacVETests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09E153412BC4B9E100356C91 /* Build configuration list for PBXNativeTarget "MacVETests" */;
+			buildConfigurationList = 09DF211F2C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVETests" */;
 			buildPhases = (
-				09E153262BC4B9E000356C91 /* Sources */,
-				09E153272BC4B9E000356C91 /* Frameworks */,
-				09E153282BC4B9E000356C91 /* Resources */,
+				09DF21042C18E83200F046A9 /* Sources */,
+				09DF21052C18E83200F046A9 /* Frameworks */,
+				09DF21062C18E83200F046A9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				09E1532C2BC4B9E000356C91 /* PBXTargetDependency */,
+				09DF210A2C18E83200F046A9 /* PBXTargetDependency */,
 			);
 			name = MacVETests;
 			productName = MacVETests;
-			productReference = 09E1532A2BC4B9E000356C91 /* MacVETests.xctest */;
+			productReference = 09DF21082C18E83200F046A9 /* MacVETests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		09E153332BC4B9E100356C91 /* MacVEUITests */ = {
+		09DF21112C18E83200F046A9 /* MacVEUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09E153442BC4B9E100356C91 /* Build configuration list for PBXNativeTarget "MacVEUITests" */;
+			buildConfigurationList = 09DF21222C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVEUITests" */;
 			buildPhases = (
-				09E153302BC4B9E100356C91 /* Sources */,
-				09E153312BC4B9E100356C91 /* Frameworks */,
-				09E153322BC4B9E100356C91 /* Resources */,
+				09DF210E2C18E83200F046A9 /* Sources */,
+				09DF210F2C18E83200F046A9 /* Frameworks */,
+				09DF21102C18E83200F046A9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				09E153362BC4B9E100356C91 /* PBXTargetDependency */,
+				09DF21142C18E83200F046A9 /* PBXTargetDependency */,
 			);
 			name = MacVEUITests;
 			productName = MacVEUITests;
-			productReference = 09E153342BC4B9E100356C91 /* MacVEUITests.xctest */;
+			productReference = 09DF21122C18E83200F046A9 /* MacVEUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		09E153112BC4B9DE00356C91 /* Project object */ = {
+		09DF20EF2C18E83000F046A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					09E153182BC4B9DE00356C91 = {
+					09DF20F62C18E83000F046A9 = {
 						CreatedOnToolsVersion = 15.3;
 					};
-					09E153292BC4B9E000356C91 = {
+					09DF21072C18E83200F046A9 = {
 						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 09E153182BC4B9DE00356C91;
+						TestTargetID = 09DF20F62C18E83000F046A9;
 					};
-					09E153332BC4B9E100356C91 = {
+					09DF21112C18E83200F046A9 = {
 						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 09E153182BC4B9DE00356C91;
+						TestTargetID = 09DF20F62C18E83000F046A9;
 					};
 				};
 			};
-			buildConfigurationList = 09E153142BC4B9DE00356C91 /* Build configuration list for PBXProject "MacVE" */;
+			buildConfigurationList = 09DF20F22C18E83000F046A9 /* Build configuration list for PBXProject "MacVE" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -208,35 +309,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 09E153102BC4B9DE00356C91;
-			productRefGroup = 09E1531A2BC4B9DE00356C91 /* Products */;
+			mainGroup = 09DF20EE2C18E83000F046A9;
+			productRefGroup = 09DF20F82C18E83000F046A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				09E153182BC4B9DE00356C91 /* MacVE */,
-				09E153292BC4B9E000356C91 /* MacVETests */,
-				09E153332BC4B9E100356C91 /* MacVEUITests */,
+				09DF20F62C18E83000F046A9 /* MacVE */,
+				09DF21072C18E83200F046A9 /* MacVETests */,
+				09DF21112C18E83200F046A9 /* MacVEUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		09E153172BC4B9DE00356C91 /* Resources */ = {
+		09DF20F52C18E83000F046A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E153212BC4B9E000356C91 /* Assets.xcassets in Resources */,
+				09DF21022C18E83100F046A9 /* Preview Assets.xcassets in Resources */,
+				09DF20FF2C18E83100F046A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		09E153282BC4B9E000356C91 /* Resources */ = {
+		09DF21062C18E83200F046A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		09E153322BC4B9E100356C91 /* Resources */ = {
+		09DF21102C18E83200F046A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,50 +348,58 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		09E153152BC4B9DE00356C91 /* Sources */ = {
+		09DF20F32C18E83000F046A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E153482BC4BC3700356C91 /* main.swift in Sources */,
-				09E1531F2BC4B9DE00356C91 /* ViewController.swift in Sources */,
-				09E1531D2BC4B9DE00356C91 /* AppDelegate.swift in Sources */,
+				096A4F8B2C1BAE680030D1A4 /* VolumeControl.swift in Sources */,
+				09DF213C2C18FF0000F046A9 /* PlaybackControls.swift in Sources */,
+				09DF213F2C19072400F046A9 /* ResolutionMenu.swift in Sources */,
+				09DF213A2C18F56400F046A9 /* PlaybackModel.swift in Sources */,
+				096A4F8D2C1BBA2C0030D1A4 /* VerticalSlider.swift in Sources */,
+				09DF21382C18F2BF00F046A9 /* VideoPlayer.swift in Sources */,
+				09DF21352C18F1C800F046A9 /* PlaybackView.swift in Sources */,
+				09DF20FB2C18E83000F046A9 /* MacVEApp.swift in Sources */,
+				096A4F8F2C1BC53A0030D1A4 /* VideoCompositor.swift in Sources */,
+				09F33E9D2C1F50E3000FA92D /* Math.swift in Sources */,
+				09F33E9F2C1F5104000FA92D /* PlayerOperations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		09E153262BC4B9E000356C91 /* Sources */ = {
+		09DF21042C18E83200F046A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E1532F2BC4B9E100356C91 /* MacVETests.swift in Sources */,
+				09DF210D2C18E83200F046A9 /* MacVETests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		09E153302BC4B9E100356C91 /* Sources */ = {
+		09DF210E2C18E83200F046A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E153392BC4B9E100356C91 /* MacVEUITests.swift in Sources */,
-				09E1533B2BC4B9E100356C91 /* MacVEUITestsLaunchTests.swift in Sources */,
+				09DF21172C18E83200F046A9 /* MacVEUITests.swift in Sources */,
+				09DF21192C18E83200F046A9 /* MacVEUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		09E1532C2BC4B9E000356C91 /* PBXTargetDependency */ = {
+		09DF210A2C18E83200F046A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 09E153182BC4B9DE00356C91 /* MacVE */;
-			targetProxy = 09E1532B2BC4B9E000356C91 /* PBXContainerItemProxy */;
+			target = 09DF20F62C18E83000F046A9 /* MacVE */;
+			targetProxy = 09DF21092C18E83200F046A9 /* PBXContainerItemProxy */;
 		};
-		09E153362BC4B9E100356C91 /* PBXTargetDependency */ = {
+		09DF21142C18E83200F046A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 09E153182BC4B9DE00356C91 /* MacVE */;
-			targetProxy = 09E153352BC4B9E100356C91 /* PBXContainerItemProxy */;
+			target = 09DF20F62C18E83000F046A9 /* MacVE */;
+			targetProxy = 09DF21132C18E83200F046A9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		09E1533C2BC4B9E100356C91 /* Debug */ = {
+		09DF211A2C18E83200F046A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -342,7 +452,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -352,7 +462,7 @@
 			};
 			name = Debug;
 		};
-		09E1533D2BC4B9E100356C91 /* Release */ = {
+		09DF211B2C18E83200F046A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -399,7 +509,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -407,22 +517,21 @@
 			};
 			name = Release;
 		};
-		09E1533F2BC4B9E100356C91 /* Debug */ = {
+		09DF211D2C18E83200F046A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MacVE/MacVE.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MacVE/System/MacVE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacVE/Preview Content\"";
 				DEVELOPMENT_TEAM = G8P85U8XP2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = MacVE;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -435,22 +544,21 @@
 			};
 			name = Debug;
 		};
-		09E153402BC4B9E100356C91 /* Release */ = {
+		09DF211E2C18E83200F046A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MacVE/MacVE.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MacVE/System/MacVE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacVE/Preview Content\"";
 				DEVELOPMENT_TEAM = G8P85U8XP2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = MacVE;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -463,7 +571,7 @@
 			};
 			name = Release;
 		};
-		09E153422BC4B9E100356C91 /* Debug */ = {
+		09DF21202C18E83200F046A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -472,7 +580,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G8P85U8XP2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,7 +590,7 @@
 			};
 			name = Debug;
 		};
-		09E153432BC4B9E100356C91 /* Release */ = {
+		09DF21212C18E83200F046A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -491,7 +599,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G8P85U8XP2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,7 +609,7 @@
 			};
 			name = Release;
 		};
-		09E153452BC4B9E100356C91 /* Debug */ = {
+		09DF21232C18E83200F046A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -518,7 +626,7 @@
 			};
 			name = Debug;
 		};
-		09E153462BC4B9E100356C91 /* Release */ = {
+		09DF21242C18E83200F046A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -538,43 +646,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09E153142BC4B9DE00356C91 /* Build configuration list for PBXProject "MacVE" */ = {
+		09DF20F22C18E83000F046A9 /* Build configuration list for PBXProject "MacVE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				09E1533C2BC4B9E100356C91 /* Debug */,
-				09E1533D2BC4B9E100356C91 /* Release */,
+				09DF211A2C18E83200F046A9 /* Debug */,
+				09DF211B2C18E83200F046A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09E1533E2BC4B9E100356C91 /* Build configuration list for PBXNativeTarget "MacVE" */ = {
+		09DF211C2C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				09E1533F2BC4B9E100356C91 /* Debug */,
-				09E153402BC4B9E100356C91 /* Release */,
+				09DF211D2C18E83200F046A9 /* Debug */,
+				09DF211E2C18E83200F046A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09E153412BC4B9E100356C91 /* Build configuration list for PBXNativeTarget "MacVETests" */ = {
+		09DF211F2C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVETests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				09E153422BC4B9E100356C91 /* Debug */,
-				09E153432BC4B9E100356C91 /* Release */,
+				09DF21202C18E83200F046A9 /* Debug */,
+				09DF21212C18E83200F046A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09E153442BC4B9E100356C91 /* Build configuration list for PBXNativeTarget "MacVEUITests" */ = {
+		09DF21222C18E83200F046A9 /* Build configuration list for PBXNativeTarget "MacVEUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				09E153452BC4B9E100356C91 /* Debug */,
-				09E153462BC4B9E100356C91 /* Release */,
+				09DF21232C18E83200F046A9 /* Debug */,
+				09DF21242C18E83200F046A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 09E153112BC4B9DE00356C91 /* Project object */;
+	rootObject = 09DF20EF2C18E83000F046A9 /* Project object */;
 }
