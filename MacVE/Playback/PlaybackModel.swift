@@ -12,16 +12,13 @@ protocol PlaybackModelProtocol: ObservableObject {
 
     
     var resolution: PlaybackResolution {get set}
-    
     func playback(command: PlaybackCommands)
-    
     
 }
 
-
-
 class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
     @Published var player: AVPlayer = AVPlayer()
+    @AppStorage("SkipAmount") var secondsToSkip: Double = 5
     
     @Published var isPlaying: Bool = false
     @Published var volumeLevel: Float = 1.0 {
@@ -30,13 +27,64 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
         }
     }
     @Published var command: PlaybackCommands? = nil
-    
-    @Published var resolution: PlaybackResolution = .fullResolution
+    @Published var resolution: PlaybackResolution = .fullResolution{
+        didSet{
+            self.changePlayerResolution()
+        }
+    }
     
     func playback(command: PlaybackCommands) {
-        if command == .playPause, player.currentItem != nil {
+        let operations = PlayerOperations.shared
+        let seconds = PlayerOperations.secondsToSkip
+        
+        switch command {
+        case .backward:
+            operations.skip(fowards: false, forPlayer: player)
+            
+        case .backwardEnd:
+            operations.jumpTo(end: false, player: player)
+            
+        case .playPause:
             isPlaying.toggle()
+            operations.playPause(for: player, shouldPlay: isPlaying)
+            
+        case .foward:
+            operations.skip(fowards: true, forPlayer: player)
+            
+        case .fowardEnd:
+            operations.jumpTo(end: true, player: player)
         }
-        self.command = command
     }
+    
+    private func changePlayerResolution() {
+        guard let item = player.currentItem, let composition = item.customVideoCompositor else {
+            return
+        }
+        let operations = PlayerOperations.shared
+        let asset = item.asset
+
+        Task(priority: .userInitiated) {
+            do {
+                let originalResolution = try await operations.getNaturalResolution(for: asset)
+                let test = try await asset.loadTracks(withMediaType: .video).first
+                
+                let newResolution = operations.getScaledResolution(for: originalResolution, with: resolution)
+                
+                let pixelBufferAttributes: [String: Any] = [
+                            kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)
+                        ]
+                let output = AVPlayerItemVideoOutput(pixelBufferAttributes: pixelBufferAttributes)
+                
+                item.add(output)
+
+            }catch {
+                print("SHIT")
+                return
+            }
+        }
+    }
+    
+
+    
+ 
 }
