@@ -1,6 +1,7 @@
 //Created by Lugalu on 11/06/24.
 
 import SwiftUI
+import AVKit
 
 @available(*, deprecated, message: "unused for now")
 enum PlaybackResolution: String, CaseIterable {
@@ -50,7 +51,23 @@ struct ResolutionMenu: View {
     }
 }
 
-#Preview {
-    ResolutionMenu(resolution: .constant(.fullResolution))
-        .padding(32)
+class ResolutionChanger: NSObject, AVVideoCompositing {
+    var sourcePixelBufferAttributes: [String : Any]? = [
+        String(kCVPixelBufferPixelFormatTypeKey): kCVPixelFormatType_32ARGB,
+        
+    ]
+    
+    var requiredPixelBufferAttributesForRenderContext: [String : Any] = [:]
+    
+    func renderContextChanged(_ newRenderContext: AVVideoCompositionRenderContext) {
+        let test = newRenderContext.newPixelBuffer()
+        
+        
+    }
+    
+    func startRequest(_ asyncVideoCompositionRequest: AVAsynchronousVideoCompositionRequest) {
+        asyncVideoCompositionRequest.renderContext.newPixelBuffer()
+        
+    }
+    
 }

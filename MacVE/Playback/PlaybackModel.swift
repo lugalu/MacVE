@@ -53,6 +53,7 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
     func loadVideo(){
         let url = URL(filePath: "video2.mp4", directoryHint: .checkFileSystem, relativeTo: .downloadsDirectory)
         let assetURL = AVURLAsset(url: url)
+
         Task{
             do {
                 let tracks = try await assetURL.load(.tracks)
