@@ -26,9 +26,7 @@ struct PlaybackView<T: PlaybackModelProtocol>: View {
             Group{
                 //TODO: remove this and insert Spacer!
                 Button(action: {
-                    let url = URL(filePath: "video2.mp4", directoryHint: .checkFileSystem, relativeTo: .downloadsDirectory)
-                    let playerItem = AVPlayerItem(url: url)
-                    viewModel.player.replaceCurrentItem(with: playerItem)
+                    viewModel.loadVideo()
                 }, label: {
                     Text("Load Video")
                 })
@@ -36,10 +34,6 @@ struct PlaybackView<T: PlaybackModelProtocol>: View {
                 PlaybackControls(isPlaying: viewModel.isPlaying,
                                  action: viewModel.playback)
                 VolumeControl(sliderValue: $viewModel.volumeLevel)
-                
-                ResolutionMenu(resolution: $viewModel.resolution)
-                
-                
             }
             .frame(maxWidth: .infinity)
         }

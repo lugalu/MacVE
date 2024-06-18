@@ -9,33 +9,26 @@ protocol PlaybackModelProtocol: ObservableObject {
     var isPlaying: Bool {get set}
     var volumeLevel: Float {get set}
     var command: PlaybackCommands? {get set}
-
     
-    var resolution: PlaybackResolution {get set}
     func playback(command: PlaybackCommands)
+    func loadVideo()
     
 }
 
 class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
     @Published var player: AVPlayer = AVPlayer()
-    @AppStorage("SkipAmount") var secondsToSkip: Double = 5
-    
     @Published var isPlaying: Bool = false
+    @Published var command: PlaybackCommands? = nil
+    
     @Published var volumeLevel: Float = 1.0 {
         didSet{
             player.volume = volumeLevel
         }
     }
-    @Published var command: PlaybackCommands? = nil
-    @Published var resolution: PlaybackResolution = .fullResolution{
-        didSet{
-            self.changePlayerResolution()
-        }
-    }
+
     
     func playback(command: PlaybackCommands) {
         let operations = PlayerOperations.shared
-        let seconds = PlayerOperations.secondsToSkip
         
         switch command {
         case .backward:
@@ -56,35 +49,29 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
         }
     }
     
-    private func changePlayerResolution() {
-        guard let item = player.currentItem, let composition = item.customVideoCompositor else {
-            return
-        }
-        let operations = PlayerOperations.shared
-        let asset = item.asset
-
-        Task(priority: .userInitiated) {
+    //MARK: Temporary and reference for creating compositions!
+    func loadVideo(){
+        let url = URL(filePath: "video2.mp4", directoryHint: .checkFileSystem, relativeTo: .downloadsDirectory)
+        let assetURL = AVURLAsset(url: url)
+        Task{
             do {
-                let originalResolution = try await operations.getNaturalResolution(for: asset)
-                let test = try await asset.loadTracks(withMediaType: .video).first
+                let tracks = try await assetURL.load(.tracks)
                 
-                let newResolution = operations.getScaledResolution(for: originalResolution, with: resolution)
+                let composition = AVMutableComposition()
                 
-                let pixelBufferAttributes: [String: Any] = [
-                            kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)
-                        ]
-                let output = AVPlayerItemVideoOutput(pixelBufferAttributes: pixelBufferAttributes)
+                for track in tracks {
+                    let compositionTrack = composition.addMutableTrack(withMediaType: track.mediaType, preferredTrackID: kCMPersistentTrackID_Invalid)
+                    let trackDuration = try await assetURL.load(.duration)
+                    try compositionTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: trackDuration), of: track, at: .zero)
+                }
                 
-                item.add(output)
-
-            }catch {
-                print("SHIT")
-                return
+                let playerItem = AVPlayerItem(asset: composition)
+                player.replaceCurrentItem(with: playerItem)
+            } catch {
+                print("Error")
             }
         }
     }
-    
 
     
- 
 }

@@ -2,6 +2,7 @@
 
 import SwiftUI
 
+@available(*, deprecated, message: "unused for now")
 enum PlaybackResolution: String, CaseIterable {
     case fullResolution = "Full"
     case halfResolution = "1/2"
@@ -23,6 +24,7 @@ enum PlaybackResolution: String, CaseIterable {
     }
 }
 
+@available(*, deprecated, message: "unused for now")
 struct ResolutionMenu: View {
     @Binding var resolution: PlaybackResolution
     
