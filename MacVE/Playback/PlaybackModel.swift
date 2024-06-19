@@ -57,17 +57,41 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
         Task{
             do {
                 let tracks = try await assetURL.load(.tracks)
-                
+                let trackDuration = try await assetURL.load(.duration)
+                var instructions: [AVVideoCompositionLayerInstruction] = []
                 let composition = AVMutableComposition()
+                
+                
+                
+                
                 
                 for track in tracks {
                     let compositionTrack = composition.addMutableTrack(withMediaType: track.mediaType, preferredTrackID: kCMPersistentTrackID_Invalid)
-                    let trackDuration = try await assetURL.load(.duration)
                     try compositionTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: trackDuration), of: track, at: .zero)
+                    
+                    if track.mediaType == .video {
+                        guard let id = compositionTrack else { continue }
+                        let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: id)
+                        
+                        instructions.append(instruction)
+                    }
+                    
+                    
                 }
-                
+                let naturalSize = try await PlayerOperations.shared.getNaturalResolution(for: assetURL)
+                let scaled = PlayerOperations.shared.getScaledResolution(for: naturalSize, with: .eighthResolution)
+              
+                let videoComposition = try await AVMutableVideoComposition.videoComposition(withPropertiesOf: composition)
+                videoComposition.customVideoCompositorClass = ResolutionChangerCompositor.self
+                let instruction = AVMutableVideoCompositionInstruction()
+                instruction.layerInstructions = instructions
+               // videoComposition.instructions = [instruction]
+
                 let playerItem = AVPlayerItem(asset: composition)
+                playerItem.videoComposition = videoComposition
+
                 player.replaceCurrentItem(with: playerItem)
+
             } catch {
                 print("Error")
             }
