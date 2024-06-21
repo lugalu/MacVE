@@ -24,6 +24,7 @@ class PlayerOperations {
         isPlaying ? player.play() : player.pause()
     }
     
+    
     func skip(fowards: Bool, forPlayer: AVPlayer) {
         guard let videoDuration = forPlayer.currentItem?.duration else { return }
         let seconds = PlayerOperations.secondsToSkip
@@ -40,6 +41,7 @@ class PlayerOperations {
         forPlayer.seek(to: seekTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
     }
     
+    
     func jumpTo(end:Bool, player: AVPlayer) {
         var time: CMTime = CMTimeMake(value: 0, timescale: 1000)
 
@@ -50,6 +52,7 @@ class PlayerOperations {
         player.seek(to: time, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
     }
     
+    
     func getNaturalResolution(for asset: AVAsset) async throws -> CGSize {
         guard let track = try await asset.loadTracks(withMediaType: .video).first else {
             throw PlayerErrors.failedToRetrieveTrack
@@ -57,44 +60,5 @@ class PlayerOperations {
         
         let originalResolution = try await track.load(.naturalSize)
         return originalResolution
-    }
-    
-    
-    func changePlayerResolution(for player: AVPlayer, with resolution: PlaybackResolution) {
-        guard let item = player.currentItem else { return }
-        let asset = item.asset
-        Task(priority: .userInitiated) {
-            do {
-                guard let track = try await asset.loadTracks(withMediaType: .video).first else {
-                    return
-                }
-                
-                let originalResolution = try await track.load(.naturalSize)
-                let width = originalResolution.width
-                let height = originalResolution.height
-                let scale = CGFloat(resolution.getValue())
-                
-                let newResolution = CGSize(width: width * scale, height: height * scale)
-                
-                let pixelBufferAttributes: [String: Any] = [
-                            kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)
-                        ]
-                let output = AVPlayerItemVideoOutput(pixelBufferAttributes: pixelBufferAttributes)
-                
-                item.add(output)
-
-            }catch {
-                print("SHIT")
-                return
-            }
-        }
-    }
-    
-    
-    func getScaledResolution(for original: CGSize, with resolutionScale: PlaybackResolution) -> CGSize{
-        let width = original.width
-        let height = original.height
-        let scale = CGFloat(resolutionScale.getValue())
-        return CGSize(width: width * scale, height: height * scale)
     }
 }
