@@ -4,7 +4,6 @@ import SwiftUI
 import AVKit
 import Accelerate
 
-@available(*, deprecated, message: "unused for now")
 enum PlaybackResolution: String, CaseIterable {
     case fullResolution = "Full"
     case halfResolution = "1/2"
@@ -26,7 +25,6 @@ enum PlaybackResolution: String, CaseIterable {
     }
 }
 
-@available(*, deprecated, message: "unused for now")
 struct ResolutionMenu: View {
     @Binding var resolution: PlaybackResolution
     
@@ -66,51 +64,103 @@ class ResolutionChangerCompositor: NSObject, AVVideoCompositing {
     func renderContextChanged(_ newRenderContext: AVVideoCompositionRenderContext) {
     }
     
+    private func createvImage_CGImageFormat(cvPixelBuffer: CVPixelBuffer) -> vImage_CGImageFormat? {
+        let ciImage = CIImage(cvPixelBuffer: cvPixelBuffer)
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent),
+        let colorSpace = cgImage.colorSpace
+        else { return nil }
+        
+        return vImage_CGImageFormat(bitsPerComponent: 8,
+                                    bitsPerPixel: 32,
+                                    colorSpace: colorSpace,
+                                    bitmapInfo: cgImage.bitmapInfo)
+    }
+    
     func startRequest(_ asyncVideoCompositionRequest: AVAsynchronousVideoCompositionRequest) {
-        print("hello")
         let request = asyncVideoCompositionRequest
         let instruction = request.videoCompositionInstruction
         
         guard let id = instruction.requiredSourceTrackIDs?.first as? Int32,
-              let frameBuffer = request.sourceFrame(byTrackID: id) else {
+              let sourceBuffer = request.sourceFrame(byTrackID: id)
+        else {
             request.finishCancelledRequest()
             return
         }
-        let ciImage = CIImage(cvPixelBuffer: frameBuffer)
-        let context = CIContext(options: nil)
-        guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent),
-        let colorSpace = cgImage.colorSpace,
-        var imageFormat = vImage_CGImageFormat(bitsPerComponent: cgImage.bitsPerComponent,
-                                               bitsPerPixel: cgImage.bitsPerComponent,
-                                               colorSpace: colorSpace,
-                                               bitmapInfo: cgImage.bitmapInfo)
-        else {
-            fatalError("Ops")
-         //   return
+
+        let bufferWidth = CVPixelBufferGetWidth(sourceBuffer)
+        let bufferHeight = CVPixelBufferGetHeight(sourceBuffer)
+        
+        let newWidth = Int( Float(bufferWidth) * PlaybackResolution.eighthResolution.getValue() )
+        let newHeight = Int( Float(bufferHeight) * PlaybackResolution.eighthResolution.getValue() )
+        
+        let sourcePixelFormat = CVPixelBufferGetPixelFormatType(sourceBuffer)
+        let destBufferAttributes =  [
+            String(kCVPixelBufferMetalCompatibilityKey): true,
+            String(kCVPixelBufferOpenGLCompatibilityKey): true,
+            String(kCVPixelBufferIOSurfacePropertiesKey): [
+              String(kCVPixelBufferIOSurfaceCoreAnimationCompatibilityKey): true
+            ]
+          ] as CFDictionary
+
+        var destinationBuffer: CVPixelBuffer?
+        let destinationResult = CVPixelBufferCreate(kCFAllocatorDefault,
+                                                    newWidth,
+                                                    newHeight,
+                                                    sourcePixelFormat,
+                                                    destBufferAttributes,
+                                                    &destinationBuffer)
+        guard destinationResult == kCVReturnSuccess,
+              var destinationBuffer else {
+            request.finishCancelledRequest()
+            return
         }
-        let bufferWidth = CVPixelBufferGetWidth(frameBuffer)
-        let bufferHeight = CVPixelBufferGetHeight(frameBuffer)
-       // let bufferFormat = CVPixelBufferGetPixelFormatType(frameBuffer)
-        let imageFormatPointer: UnsafeMutablePointer<vImage_CGImageFormat> = .allocate(capacity: imageFormat.componentCount)
-        imageFormatPointer.initialize(from: &imageFormat, count: imageFormat.componentCount)
-        
-        let floatPointer: UnsafeMutablePointer<CGFloat> = .allocate(capacity: 1)
-        var val:CGFloat = 0
-        floatPointer.initialize(from: &val, count: 1)
+        CVBufferPropagateAttachments(sourceBuffer, destinationBuffer)
         
         
-        let imageBuffer: UnsafeMutablePointer<vImage_Buffer> = .allocate(capacity: bufferHeight * bufferWidth)
-        vImageBuffer_InitWithCVPixelBuffer(imageBuffer, imageFormatPointer, frameBuffer, nil, floatPointer, .zero) 
+        let sourceFlags = CVPixelBufferLockFlags.readOnly
+        let destinationFlags = CVPixelBufferLockFlags(rawValue: 0)
         
+        guard kCVReturnSuccess == CVPixelBufferLockBaseAddress(sourceBuffer, sourceFlags) else {
+            request.finishCancelledRequest()
+            return
+        }
+        defer{ CVPixelBufferUnlockBaseAddress(sourceBuffer, sourceFlags) }
         
+        guard kCVReturnSuccess == CVPixelBufferLockBaseAddress(destinationBuffer, destinationFlags) else {
+            request.finishCancelledRequest()
+            return
+        }
+        defer{ CVPixelBufferUnlockBaseAddress(destinationBuffer, destinationFlags) }
 
+        guard let sourceBaseAddress = CVPixelBufferGetBaseAddress(sourceBuffer),
+              let destinationBaseAddress = CVPixelBufferGetBaseAddress(destinationBuffer) else {
+            request.finishCancelledRequest()
+            return
+        }
+        
+        let sourceBytesPerRow = CVPixelBufferGetBytesPerRow(sourceBuffer)
+        let destinationBytesPerRow = CVPixelBufferGetBytesPerRow(destinationBuffer)
+        var sourceVBuffer = vImage_Buffer(data: sourceBaseAddress,
+                                         height: vImagePixelCount(bufferHeight),
+                                         width: vImagePixelCount(bufferWidth),
+                                         rowBytes: sourceBytesPerRow)
+        
+        var destinationVBuffer = vImage_Buffer(data: destinationBaseAddress,
+                                         height: vImagePixelCount(newHeight),
+                                         width: vImagePixelCount(newWidth),
+                                         rowBytes: destinationBytesPerRow)
+        
+        let error = vImageScale_ARGB8888(&sourceVBuffer, &destinationVBuffer, nil, vImage_Flags(kvImagePrintDiagnosticsToConsole))
 
-
-        request.finish(withComposedVideoFrame: frameBuffer)
+        guard error == kvImageNoError else  {
+            request.finishCancelledRequest()
+            return
+        }
+        request.finish(withComposedVideoFrame: destinationBuffer)
     }
     
     func cancelAllPendingVideoCompositionRequests() {
-            print("hm")
     }
     
     
