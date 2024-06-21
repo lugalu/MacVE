@@ -9,6 +9,7 @@ protocol PlaybackModelProtocol: ObservableObject {
     var isPlaying: Bool {get set}
     var volumeLevel: Float {get set}
     var command: PlaybackCommands? {get set}
+    var resolution: PlaybackResolution { get set }
     
     func playback(command: PlaybackCommands)
     func loadVideo()
@@ -19,6 +20,11 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
     @Published var player: AVPlayer = AVPlayer()
     @Published var isPlaying: Bool = false
     @Published var command: PlaybackCommands? = nil
+    @Published var resolution: PlaybackResolution = ResolutionSyncer.currentResolution {
+        didSet{
+            ResolutionSyncer.currentResolution = resolution
+        }
+    }
     
     @Published var volumeLevel: Float = 1.0 {
         didSet{
@@ -78,9 +84,7 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
                     
                     
                 }
-                let naturalSize = try await PlayerOperations.shared.getNaturalResolution(for: assetURL)
-                let scaled = PlayerOperations.shared.getScaledResolution(for: naturalSize, with: .eighthResolution)
-              
+                
                 let videoComposition = try await AVMutableVideoComposition.videoComposition(withPropertiesOf: composition)
                 videoComposition.customVideoCompositorClass = ResolutionChangerCompositor.self
                 let instruction = AVMutableVideoCompositionInstruction()

@@ -6,8 +6,6 @@ import AVKit
 struct PlaybackView<T: PlaybackModelProtocol>: View {
     @EnvironmentObject var viewModel: T
     
-
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 8){
             
@@ -34,6 +32,8 @@ struct PlaybackView<T: PlaybackModelProtocol>: View {
                 PlaybackControls(isPlaying: viewModel.isPlaying,
                                  action: viewModel.playback)
                 VolumeControl(sliderValue: $viewModel.volumeLevel)
+                
+                ResolutionMenu(resolution: $viewModel.resolution)
             }
             .frame(maxWidth: .infinity)
         }
