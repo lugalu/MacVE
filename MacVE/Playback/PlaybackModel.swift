@@ -67,10 +67,6 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
                 var instructions: [AVVideoCompositionLayerInstruction] = []
                 let composition = AVMutableComposition()
                 
-                
-                
-                
-                
                 for track in tracks {
                     let compositionTrack = composition.addMutableTrack(withMediaType: track.mediaType, preferredTrackID: kCMPersistentTrackID_Invalid)
                     try compositionTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: trackDuration), of: track, at: .zero)
