@@ -6,9 +6,15 @@ import SwiftUI
 struct MacVEApp: App {
     var body: some Scene {
         WindowGroup {
-            PlaybackView<PlaybackModel>()
-                .environmentObject(PlaybackModel())
-                .frame(minWidth: 1200, minHeight: 700)
+            ProjectSelectorView()
+                .frame(width: 700,height: 370, alignment: .leading)
+                .fixedSize()
+
+            
+//            PlaybackView<PlaybackModel>()
+//                .environmentObject(PlaybackModel())
+//                .frame(minWidth: 1200, minHeight: 700)
         }
+        .windowResizability(.contentSize)
     }
 }

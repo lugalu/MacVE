@@ -5,15 +5,91 @@ import UniformTypeIdentifiers
 
 struct ProjectSelectorView: View {
     var body: some View {
-        VStack{
+        VStack(alignment:.leading, spacing: 16) {
+            
+            Text("Welcome To MacVE!")
+                .font(.largeTitle)
+            
+            
+            HStack(spacing: 8) {
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Label("Create new Project", systemImage: "plus")
+                        .labelStyle(RightHandedIconLabelStyle())
+                        .font(.system(size: 16))
+                        .fontWeight(.semibold)
+                })
+                .buttonStyle(.borderedProminent)
+                
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Label("Open from disk", systemImage: "folder")
+                        .labelStyle(RightHandedIconLabelStyle())
+                        .font(.system(size: 16))
+                        .fontWeight(.semibold)
+                })
+                .buttonStyle(.borderedProminent)
+
+            }
+            .padding(.leading, 8)
+            
+            
+            Text("Recent Projects")
+                .font(.title)
+                .padding(.leading, 8)
+
+            
+            HStack {
+                ProjectCard()
+            }
+            .padding(.leading, 16)
+            
             
         }
+        .padding(8)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+    }
+}
+
+struct ProjectCard: View {
+    var body: some View {
+        Image(systemName: "pencil")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 136, height: 204)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .fixedSize()
+            .overlay(alignment: .bottom){
+                ZStack(alignment: .bottomLeading){
+                    LinearGradient(stops: [
+                        .init(color: .clear, location: 0),
+                        .init(color: .clear, location: 0.6),
+                        .init(color: .black.opacity(0.8), location: 1)
+                    ],
+                                    startPoint: .top,
+                                    endPoint: .bottom)
+                    .clipShape(UnevenRoundedRectangle(bottomLeadingRadius: 10,bottomTrailingRadius: 10))
+                
+                    VStack(alignment: .leading, spacing: 4){
+                        Text("Title")
+                        Text("Last Access:")
+                        Text("Duration:")
+                    }
+                    .padding([.bottom,.leading], 8)
+                }
+            }
+            .clipped()
     }
 }
 
 
 
-
+struct RightHandedIconLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack{
+            configuration.title
+            configuration.icon
+        }
+    }
+    }
 
 #Preview {
     ProjectSelectorView()
