@@ -7,9 +7,6 @@ struct MacVEApp: App {
     var body: some Scene {
         WindowGroup {
             ProjectSelectorView()
-                .frame(width: 700,height: 370, alignment: .leading)
-                .fixedSize()
-
             
 //            PlaybackView<PlaybackModel>()
 //                .environmentObject(PlaybackModel())

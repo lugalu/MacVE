@@ -10,53 +10,57 @@ struct ProjectSelectorView: View {
             Text("Welcome To MacVE!")
                 .font(.largeTitle)
             
-            
-            HStack(spacing: 8) {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Label("Create new Project", systemImage: "plus")
-                        .labelStyle(RightHandedIconLabelStyle())
-                        .font(.system(size: 16))
-                        .fontWeight(.semibold)
-                })
-                .buttonStyle(.borderedProminent)
+        
+                HStack(spacing: 8) {
+                    Button(action: {
+                        
+                    }, label: {
+                        Label("Create New Project", systemImage: "plus")
+                            .labelStyle(RightHandedIconLabelStyle())
+                            .font(.system(size: 16))
+                            .fontWeight(.semibold)
+                            .padding(5)
+                    })
+                    .buttonStyle(.borderedProminent)
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Label("Open From Disk", systemImage: "folder.fill")
+                            .labelStyle(RightHandedIconLabelStyle())
+                            .font(.system(size: 16))
+                            .fontWeight(.semibold)
+                            .padding(5)
+                        
+                    })
+                    .buttonStyle(.borderedProminent)
+                    
+                }
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Label("Open from disk", systemImage: "folder")
-                        .labelStyle(RightHandedIconLabelStyle())
-                        .font(.system(size: 16))
-                        .fontWeight(.semibold)
-                })
-                .buttonStyle(.borderedProminent)
-
-            }
-            .padding(.leading, 8)
-            
-            
-            Text("Recent Projects")
-                .font(.title)
-                .padding(.leading, 8)
-
-            
-            HStack {
-                ProjectCard()
-            }
-            .padding(.leading, 16)
-            
-            
+                
+                Text("Recent Projects")
+                    .font(.title)
+                
+                HStack(alignment: .center, spacing: 32){
+                    ProjectCard()
+                    ProjectCard()
+                    ProjectCard()
+                    ProjectCard()
+                    
+                }
         }
-        .padding(8)
+        .padding(16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .fixedSize()
     }
 }
 
 struct ProjectCard: View {
     var body: some View {
-        Image(systemName: "pencil")
+        Image("Bird")
             .resizable()
-            .scaledToFit()
-            .frame(width: 136, height: 204)
+            .frame(width: 140, height: 200)
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .fixedSize()
             .overlay(alignment: .bottom){
                 ZStack(alignment: .bottomLeading){
                     LinearGradient(stops: [
