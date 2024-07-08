@@ -6,7 +6,9 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
-			<string>ProjectIcon</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<integer>1</integer>
 			<key>CFBundleTypeName</key>
 			<string>MacVEProj</string>
 			<key>CFBundleTypeRole</key>
@@ -39,7 +41,7 @@
 				<key>UTTypeIconBadgeName</key>
 				<string>ProjectIconAsset</string>
 				<key>UTTypeIconText</key>
-				<string></string>
+				<string>VEProject</string>
 			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.lugalu.macve.veproj</string>
