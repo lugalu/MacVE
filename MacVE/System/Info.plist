@@ -35,11 +35,11 @@
 			<key>UTTypeIcons</key>
 			<dict>
 				<key>UTTypeIconBackgroundName</key>
-				<string>ProjectIcon</string>
+				<string></string>
 				<key>UTTypeIconBadgeName</key>
-				<string>ProjectIcon</string>
+				<string>ProjectIconAsset</string>
 				<key>UTTypeIconText</key>
-				<string>Mac VE project file</string>
+				<string></string>
 			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.lugalu.macve.veproj</string>
