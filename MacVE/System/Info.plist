@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>ProjectIcon</string>
+			<key>CFBundleTypeName</key>
+			<string>MacVEProj</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.lugalu.macve.veproj</string>
+			</array>
+			<key>NSUbiquitousDocumentUserActivityType</key>
+			<string>com.lugalu.macve.veproj</string>
+		</dict>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.json</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>MacVEProj</string>
+			<key>UTTypeIconFile</key>
+			<string>ProjectIcon</string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconBackgroundName</key>
+				<string>ProjectIcon</string>
+				<key>UTTypeIconBadgeName</key>
+				<string>ProjectIcon</string>
+				<key>UTTypeIconText</key>
+				<string>Mac VE project file</string>
+			</dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.lugalu.macve.veproj</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>veproj</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/json</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
