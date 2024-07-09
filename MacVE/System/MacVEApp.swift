@@ -5,13 +5,18 @@ import SwiftUI
 @main
 struct MacVEApp: App {
     var body: some Scene {
-        WindowGroup {
-            ProjectSelectorView()
-            
-//            PlaybackView<PlaybackModel>()
-//                .environmentObject(PlaybackModel())
-//                .frame(minWidth: 1200, minHeight: 700)
+        Window("SelectorView", id: "SelectorView") {
+            ProjectSelectorView<ProjectSelectorModel>()
+                .environment(ProjectSelectorModel())
         }
         .windowResizability(.contentSize)
+
+        WindowGroup{
+            PlaybackView<PlaybackModel>()
+                .environmentObject(PlaybackModel())
+        }
+        .defaultSize(width: 1200, height: 700)
+        .windowResizability(.contentSize)
+
     }
 }

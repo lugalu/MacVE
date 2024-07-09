@@ -1,9 +1,11 @@
 //Created by Lugalu on 30/06/24.
 
 import SwiftUI
-import UniformTypeIdentifiers
 
-struct ProjectSelectorView: View {
+struct ProjectSelectorView<T: ProjectSelectorModelProtocol>: View {
+    
+    @EnvironmentObject var viewModel: T
+    
     var body: some View {
         VStack(alignment:.leading, spacing: 16) {
             
@@ -16,7 +18,7 @@ struct ProjectSelectorView: View {
                         
                     }, label: {
                         Label("Create New Project", systemImage: "plus")
-                            .labelStyle(RightHandedIconLabelStyle())
+                            .labelStyle(.rightHanded)
                             .font(.system(size: 16))
                             .fontWeight(.semibold)
                             .padding(5)
@@ -24,16 +26,20 @@ struct ProjectSelectorView: View {
                     .buttonStyle(.borderedProminent)
                     
                     Button(action: {
-                        
+                        viewModel.isOpeningFile = true
                     }, label: {
                         Label("Open From Disk", systemImage: "folder.fill")
-                            .labelStyle(RightHandedIconLabelStyle())
+                            .labelStyle(.rightHanded)
                             .font(.system(size: 16))
                             .fontWeight(.semibold)
                             .padding(5)
                         
                     })
                     .buttonStyle(.borderedProminent)
+                    .fileImporter(isPresented: $viewModel.isOpeningFile,
+                                  allowedContentTypes: [.veproj]) { result in
+                        viewModel.handleFileOpening(with: result)
+                    }
                     
                 }
                 
@@ -86,17 +92,10 @@ struct ProjectCard: View {
 
 
 
-struct RightHandedIconLabelStyle: LabelStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        HStack{
-            configuration.title
-            configuration.icon
-        }
-    }
-    }
+
 
 #Preview {
-    ProjectSelectorView()
+    ProjectSelectorView<ProjectSelectorModel>()
 }
 
 //Attached to View
@@ -130,45 +129,4 @@ struct RightHandedIconLabelStyle: LabelStyle {
  }
  */
 
-struct Test: Codable, FileDocument {
-    static var readableContentTypes: [UTType] {
-        get{
-            return [.json]
-        }
-    }
-    
-    var value1: String = ""
-    var value2: Int = 1
-    
-    init(){}
-    
-    init(withData data: Data) throws{
-        let decoder = JSONDecoder()
-        let result = try decoder.decode(Test.self, from: data)
-        value1 = result.value1
-        value2 = result.value2
-    }
 
-    init(configuration: ReadConfiguration) throws {
-        if let data = configuration.file.regularFileContents {
-            let decoder = JSONDecoder()
-            let result = try decoder.decode(Test.self, from: data)
-            value1 = result.value1
-            value2 = result.value2
-            return
-        }
-        value1 = "alo"
-        value2 = 10
-    }
-    
-    
-    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        let encoder = JSONEncoder()
-        let result = try encoder.encode(self)
-        let wrapper = FileWrapper(regularFileWithContents: result)
-        wrapper.preferredFilename = "projectTest"
-        return wrapper
-    }
-    
-    
-}
