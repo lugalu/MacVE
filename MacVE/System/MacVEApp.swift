@@ -5,13 +5,13 @@ import SwiftUI
 @main
 struct MacVEApp: App {
     var body: some Scene {
-        Window("SelectorView", id: "SelectorView") {
+        Window("Project Select", id: "SelectorView") {
             ProjectSelectorView<ProjectSelectorModel>()
                 .environment(ProjectSelectorModel())
         }
         .windowResizability(.contentSize)
 
-        WindowGroup{
+        WindowGroup("Project", id: "PlaybackView" ){
             PlaybackView<PlaybackModel>()
                 .environmentObject(PlaybackModel())
         }

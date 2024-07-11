@@ -7,7 +7,7 @@ protocol ProjectSelectorModelProtocol: ObservableObject {
     var isOpeningFile: Bool { get set }
     var isCreatingProject: Bool { get set }
     
-    func handleFileOpening(with: Result<URL, any Error>)
+    func handleFileOpening(with: Result<URL, any Error>) -> VEProjectType?
     //func createNewProject(at: URL)
     
 }
@@ -21,28 +21,32 @@ class ProjectSelectorModel: ObservableObject, Observable, ProjectSelectorModelPr
     
     
     
-    func handleFileOpening(with result: Result<URL, any Error>) {
+    func handleFileOpening(with result: Result<URL, any Error>) -> VEProjectType? {
         switch result {
         case .success(let resultURL):
-            print("hey!")
             do {
                 if resultURL.startAccessingSecurityScopedResource() {
                     defer{
                         resultURL.stopAccessingSecurityScopedResource()
                     }
-                    let readTest = try Data(contentsOf: resultURL)
-                    let newTest = try VEProjectType(withData: readTest)
-                    print("secure", readTest, newTest)
-                    return
+                    let diskData = try Data(contentsOf: resultURL)
+                    guard let project = try VEProjectType(withData: diskData) else {
+                        fatalError("ops")
+                    }
+                
+                    return project
                 }
                 //MARK: Need to inform that an error occured!
 
             } catch {
                 print(error.localizedDescription)
+                return nil
             }
         case .failure(let failure):
             print("hey, \(failure)")
+            return nil
 
         }
+        return nil
     }
 }

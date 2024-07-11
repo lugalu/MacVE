@@ -38,7 +38,11 @@ struct ProjectSelectorView<T: ProjectSelectorModelProtocol>: View {
                     .buttonStyle(.borderedProminent)
                     .fileImporter(isPresented: $viewModel.isOpeningFile,
                                   allowedContentTypes: [.veproj]) { result in
-                        viewModel.handleFileOpening(with: result)
+                        guard let project = viewModel.handleFileOpening(with: result) else{
+                            return
+                        }
+                        
+                        print(project)
                     }
                     
                 }
