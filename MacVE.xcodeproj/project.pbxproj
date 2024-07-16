@@ -11,6 +11,7 @@
 		091B25622C263BB700E0A2FD /* ResolutionSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B25612C263BB700E0A2FD /* ResolutionSyncer.swift */; };
 		096A4F8B2C1BAE680030D1A4 /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */; };
 		096A4F8D2C1BBA2C0030D1A4 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */; };
+		098FFA582C473E4D000D3821 /* test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 098FFA562C473E4D000D3821 /* test.xcdatamodeld */; };
 		09AE13FB2C3CAD37002F90AA /* ProjectIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 09AE13FA2C3CAD37002F90AA /* ProjectIcon.icns */; };
 		09B956702C32217300AA36CF /* ProjectSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B9566F2C32217300AA36CF /* ProjectSelectorView.swift */; };
 		09C2D9A22C3DF40F001B0484 /* VEProjType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C2D9A12C3DF40F001B0484 /* VEProjType.swift */; };
@@ -53,6 +54,7 @@
 		091B25612C263BB700E0A2FD /* ResolutionSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionSyncer.swift; sourceTree = "<group>"; };
 		096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControl.swift; sourceTree = "<group>"; };
 		096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
+		098FFA572C473E4D000D3821 /* test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = test.xcdatamodel; sourceTree = "<group>"; };
 		09AE13FA2C3CAD37002F90AA /* ProjectIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ProjectIcon.icns; sourceTree = "<group>"; };
 		09B9566F2C32217300AA36CF /* ProjectSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSelectorView.swift; sourceTree = "<group>"; };
 		09BEE73F2C3C4CAF00499E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				09DF20FA2C18E83000F046A9 /* MacVEApp.swift */,
 				09DF20FE2C18E83100F046A9 /* Assets.xcassets */,
 				09DF21032C18E83100F046A9 /* MacVE.entitlements */,
+				098FFA562C473E4D000D3821 /* test.xcdatamodeld */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				098FFA582C473E4D000D3821 /* test.xcdatamodeld in Sources */,
 				096A4F8B2C1BAE680030D1A4 /* VolumeControl.swift in Sources */,
 				091B25622C263BB700E0A2FD /* ResolutionSyncer.swift in Sources */,
 				09B956702C32217300AA36CF /* ProjectSelectorView.swift in Sources */,
@@ -743,6 +747,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		098FFA562C473E4D000D3821 /* test.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				098FFA572C473E4D000D3821 /* test.xcdatamodel */,
+			);
+			currentVersion = 098FFA572C473E4D000D3821 /* test.xcdatamodel */;
+			name = test.xcdatamodeld;
+			path = /Users/lugalu/Documents/Projects/MacVE/MacVE/System/test.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 09DF20EF2C18E83000F046A9 /* Project object */;
 }

@@ -2,6 +2,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import AVKit
 
 extension UTType {
     public static let veproj = UTType(exportedAs:"com.lugalu.macve.veproj")
@@ -80,5 +81,37 @@ class VEProjectType: Codable, FileDocument {
         return wrapper
     }
     
+    
+}
+
+@objc(CompositionTransformer)
+class CompositionTransformer: ValueTransformer {
+    override func transformedValue(_ value: Any?) -> Any? {
+        guard let composition = value as? AVMutableComposition else {
+            return nil
+        }
+        
+        do{
+           return try NSKeyedArchiver.archivedData(withRootObject: composition, requiringSecureCoding: true)
+        }catch{
+            return nil
+        }
+    }
+    
+    override func reverseTransformedValue(_ value: Any?) -> Any? {
+        guard let data = value as? Data else {
+            return nil
+        }
+        do {
+            guard let comp = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? AVMutableComposition
+            else {
+                return nil
+            }
+            
+            return comp
+        }catch {
+            return nil
+        }
+    }
     
 }
