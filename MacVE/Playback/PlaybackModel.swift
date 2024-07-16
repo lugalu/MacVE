@@ -31,7 +31,19 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
             player.volume = volumeLevel
         }
     }
-
+    
+    init(){
+        NotificationCenter.default.addObserver(self, selector: #selector(onPlayerEnd), name: AVPlayerItem.didPlayToEndTimeNotification, object: player.currentItem)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc
+    func onPlayerEnd(){
+        isPlaying = false
+    }
     
     func playback(command: PlaybackCommands) {
         let operations = PlayerOperations.shared
@@ -59,7 +71,7 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
     func loadVideo(){
         let url = URL(filePath: "video2.mp4", directoryHint: .checkFileSystem, relativeTo: .downloadsDirectory)
         let assetURL = AVURLAsset(url: url)
-
+        
         Task{
             do {
                 let tracks = try await assetURL.load(.tracks)
@@ -67,14 +79,10 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
                 var instructions: [AVVideoCompositionLayerInstruction] = []
                 let composition = AVMutableComposition()
                 
-                
-                
-                
-                
                 for track in tracks {
                     let compositionTrack = composition.addMutableTrack(withMediaType: track.mediaType, preferredTrackID: kCMPersistentTrackID_Invalid)
                     try compositionTrack?.insertTimeRange(CMTimeRange(start: .zero, duration: trackDuration), of: track, at: .zero)
-                    
+
                     if track.mediaType == .video {
                         guard let id = compositionTrack else { continue }
                         let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: id)
@@ -90,12 +98,11 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
                 let instruction = AVMutableVideoCompositionInstruction()
                 instruction.layerInstructions = instructions
                // videoComposition.instructions = [instruction]
-
                 let playerItem = AVPlayerItem(asset: composition)
                 playerItem.videoComposition = videoComposition
 
                 player.replaceCurrentItem(with: playerItem)
-
+                
             } catch {
                 print("Error")
             }
