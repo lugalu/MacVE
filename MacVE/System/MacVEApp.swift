@@ -7,7 +7,15 @@ struct MacVEApp: App {
     let persistance = PersistenceController.shared
     
     var body: some Scene {
-        WindowGroup("Project", id: "PlaybackView" ){
+        
+        WindowGroup{
+            ProjectSelectorView<ProjectSelectorModel>()
+                .environment(ProjectSelectorModel())
+        }
+        .defaultSize(width: 700, height: 400)
+        .windowResizability(.contentSize)
+        
+        WindowGroup("Project", for: Project.ID.self) { $id in
             PlaybackView<PlaybackModel>()
                 .environmentObject(PlaybackModel())
         }
@@ -23,27 +31,28 @@ struct PersistenceController {
 
     // Storage for Core Data
     let container: NSPersistentContainer
+    
+    var context: NSManagedObjectContext {
+        return container.viewContext
+    }
+    
+    static var preview: PersistenceController = {
+        let controller = PersistenceController(inMemory: true)
 
-    // A test configuration for SwiftUI previews
-//    static var preview: PersistenceController = {
-//        let controller = PersistenceController(inMemory: true)
-//
-//        // Create 10 example programming languages.
-//        for _ in 0..<10 {
-//            let language = ProgrammingLanguage(context: controller.container.viewContext)
-//            language.name = "Example Language 1"
-//            language.creator = "A. Programmer"
-//        }
-//
-//        return controller
-//    }()
+        // Create 10 example programming languages.
+        for i in 0..<10 {
+            let proj = Project(context: controller.context)
+            proj.title = "Preview Title \(i)"
+            
+            let randomTime = TimeInterval(Int32.random(in: 0...Int32.max))
+            proj.lastAccess = Date(timeIntervalSince1970: randomTime)
+        }
 
-    // An initializer to load Core Data, optionally able
-    // to use an in-memory store.
+        return controller
+    }()
+
     init(inMemory: Bool = false) {
-        // If you didn't name your model Main you'll need
-        // to change this name below.
-        container = NSPersistentContainer(name: "test")
+        container = NSPersistentContainer(name: "Main")
 
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
@@ -54,5 +63,10 @@ struct PersistenceController {
                 fatalError("Error: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func save() throws {
+        guard context.hasChanges else { return }
+        try context.save()
     }
 }

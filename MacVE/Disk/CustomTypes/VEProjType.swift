@@ -103,6 +103,7 @@ class CompositionTransformer: ValueTransformer {
             return nil
         }
         do {
+            let test = try NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClasses: [AVMutableComposition.self], from: data)
             guard let comp = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? AVMutableComposition
             else {
                 return nil

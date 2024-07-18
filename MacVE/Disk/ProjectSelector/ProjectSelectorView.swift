@@ -1,96 +1,93 @@
 //Created by Lugalu on 30/06/24.
 
 import SwiftUI
+import AppKit
 
 struct ProjectSelectorView<T: ProjectSelectorModelProtocol>: View {
-    
+    @Environment(\.openWindow) private var openWindow
     @EnvironmentObject var viewModel: T
     
+    @State var test: [Int] = Array(0..<10)
+    
     var body: some View {
-        VStack(alignment:.leading, spacing: 16) {
-            
-            Text("Welcome To MacVE!")
-                .font(.largeTitle)
-            
-        
-                HStack(spacing: 8) {
-                    Button(action: {
-                        
-                    }, label: {
-                        Label("Create New Project", systemImage: "plus")
-                            .labelStyle(.rightHanded)
-                            .font(.system(size: 16))
-                            .fontWeight(.semibold)
-                            .padding(5)
-                    })
-                    .buttonStyle(.borderedProminent)
+        VStack(alignment: .leading, spacing: 16) {
+            Group{
+                Text("Welcome To MacVE!")
+                    .font(.largeTitle)
+                    .padding(.top, 16)
+                
+                Button(action: {
                     
-                    Button(action: {
-                        viewModel.isOpeningFile = true
-                    }, label: {
-                        Label("Open From Disk", systemImage: "folder.fill")
-                            .labelStyle(.rightHanded)
-                            .font(.system(size: 16))
-                            .fontWeight(.semibold)
-                            .padding(5)
+                }, label: {
+                    Label("Create New Project", systemImage: "plus")
+                        .font(.system(size: 16))
+                        .fontWeight(.semibold)
+                        .padding(4)
+                        .frame(alignment: .leading)
+                    
+                })
+                .buttonStyle(.borderedProminent)
+                
+                List($test, id: \.self, editActions: .delete){ idx in
+                    ProjectCell(title: "A TITLE NUMBER: \(idx.wrappedValue)"){
                         
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .fileImporter(isPresented: $viewModel.isOpeningFile,
-                                  allowedContentTypes: [.veproj]) { result in
-                        guard let project = viewModel.handleFileOpening(with: result) else{
-                            return
-                        }
-                        
-                        print(project)
                     }
-                    
+                        .listRowInsets(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -10))
+                        .contextMenu{
+                            Button(
+                                action: {
+                                    test.remove(at: idx.wrappedValue)
+                                }, label: {
+                                    Text("delete")
+                                })
+                        }
                 }
-                
-                
-                Text("Recent Projects")
-                    .font(.title)
-                
-                HStack(alignment: .center, spacing: 32){
-                    ProjectCard()
-                    ProjectCard()
-                    ProjectCard()
-                    ProjectCard()
-                    
-                }
+                .clipShape(.rect(cornerRadius: 4))
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .padding(.bottom, 16)
+            }
+            .padding(.horizontal, 16)
         }
-        .padding(16)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .frame(width: 350, height: 400)
         .fixedSize()
     }
+    
+    
+    func removeRow(at offsets: IndexSet){
+        print(offsets)
+    }
+
 }
 
-struct ProjectCard: View {
+struct ProjectCell: View {
+    var title: String
+    var action: () -> Void
+    
     var body: some View {
-        Image("Bird")
-            .resizable()
-            .frame(width: 140, height: 200)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .overlay(alignment: .bottom){
-                ZStack(alignment: .bottomLeading){
-                    LinearGradient(stops: [
-                        .init(color: .clear, location: 0),
-                        .init(color: .clear, location: 0.6),
-                        .init(color: .black.opacity(0.8), location: 1)
-                    ],
-                                    startPoint: .top,
-                                    endPoint: .bottom)
-                    .clipShape(UnevenRoundedRectangle(bottomLeadingRadius: 10,bottomTrailingRadius: 10))
-                
-                    VStack(alignment: .leading, spacing: 4){
-                        Text("Title")
-                        Text("Last Access:")
-                        Text("Duration:")
-                    }
-                    .padding([.bottom,.leading], 8)
+        
+        
+        Button(action: {
+            action()
+        }, label: {
+            HStack(spacing: 4){
+                Image(systemName: "movieclapper")
+                    .font(.system(size: 20))
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                    Text("Last Access: \(Date().formatted(date: .abbreviated, time: .shortened)) ")
                 }
+                Spacer()
             }
-            .clipped()
+            .padding([.horizontal,.vertical], 8)
+            .background(Color(cgColor: NSColor.systemFill.cgColor))
+        })
+        .buttonStyle(.plain)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+    
+
     }
 }
 
