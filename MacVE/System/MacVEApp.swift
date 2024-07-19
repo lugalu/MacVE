@@ -8,7 +8,7 @@ struct MacVEApp: App {
     
     var body: some Scene {
         
-        WindowGroup{
+        WindowGroup("Project Selection"){
             ProjectSelectorView<ProjectSelectorModel>()
                 .environment(ProjectSelectorModel())
         }
@@ -19,6 +19,7 @@ struct MacVEApp: App {
             PlaybackView<PlaybackModel>()
                 .environmentObject(PlaybackModel())
         }
+        .commandsRemoved()
         .defaultSize(width: 1200, height: 700)
         .windowResizability(.contentSize)
     }

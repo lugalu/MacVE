@@ -2,6 +2,19 @@
 
 import CoreData
 
+
+enum DatabaseErrors: LocalizedError{
+    case itemDoesntExist
+    
+    
+    var errorDescription: String? {
+        return switch self {
+        case .itemDoesntExist:
+            "this ID doesn't exist"
+        }
+    }
+}
+
 struct PersistenceController {
     // A singleton for our entire app to use
     static let shared = PersistenceController()
@@ -55,7 +68,15 @@ struct PersistenceController {
     
     func fetch(_ id: UUID) throws -> Project? {
         let request = NSFetchRequest<Project>(entityName: "Project")
-        request.predicate = NSPredicate(format: "FIRST %K == %@","id", id as CVarArg)
+        request.predicate = NSPredicate(format: "%K == %@","id", id as CVarArg)
         return try context.fetch(request).first
+    }
+    
+    func delete(_ id: UUID) throws {
+        guard let proj = try fetch(id) else {
+            throw DatabaseErrors.itemDoesntExist
+        }
+        context.delete(proj)
+        try save()
     }
 }

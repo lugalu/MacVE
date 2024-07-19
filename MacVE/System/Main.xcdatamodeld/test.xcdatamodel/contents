@@ -3,7 +3,7 @@
     <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="class">
         <attribute name="composition" attributeType="Transformable" valueTransformerName="CompositionTransformer" customClassName="AVKit.AVMutableComposition"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="lastAccess" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="title" attributeType="String"/>
+        <attribute name="lastAccess" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String" defaultValueString=""/>
     </entity>
 </model>

@@ -5,20 +5,21 @@ import AppKit
 
 struct ProjectSelectorView<T: ProjectSelectorModelProtocol>: View {
     @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismissWindow) private var dismissWindow
     @EnvironmentObject var viewModel: T
-    
-    @State var test: [Int] = Array(0..<10)
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Group{
+            Group {
                 Text("Welcome To MacVE!")
                     .font(.largeTitle)
                     .padding(.top, 16)
+                    .onAppear {
+                        viewModel.fetchProjects()
+                    }
                 
                 Button(action: {
                     viewModel.isCreatingProject = true
-                    //  viewModel.createNewProject(withTitle: )
                 }, label: {
                     Label("Create New Project", systemImage: "plus")
                         .font(.system(size: 16))
@@ -29,78 +30,85 @@ struct ProjectSelectorView<T: ProjectSelectorModelProtocol>: View {
                 })
                 .buttonStyle(.borderedProminent)
                 
-                List($test, id: \.self, editActions: .delete){ idx in
-                    ProjectCell(title: "A TITLE NUMBER: \(idx.wrappedValue)"){
-                    }
-                    .listRowInsets(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -10))
-                    .contextMenu{
-                        Button(
-                            action: {
-                                test.remove(at: idx.wrappedValue)
-                            }, label: {
-                                Text("delete")
-                            })
-                    }
-                }
-                .clipShape(.rect(cornerRadius: 4))
-                .listStyle(.plain)
-                .scrollContentBackground(.hidden)
-                .padding(.bottom, 16)
+                ListProjects()
+                
             }
             .padding(.horizontal, 16)
+            
         }
         .frame(width: 350, height: 400)
         .fixedSize()
         
-        .sheet(isPresented: $viewModel.isCreatingProject){
-            Form {
-                Section{
-                    TextField(text: $viewModel.title, prompt: Text("Required")) {
-                        Text("Project Title")
-                    }
-                    
-                    Button("Done"){
-                        guard let proj = viewModel.createNewProject(withTitle: viewModel.title) else {
-                            viewModel.isCreatingProject = false
-                            viewModel.error = true
-                            return
-                        }
-                        openWindow(value: proj.id)
-                    }
-                    .disabled(viewModel.title.isEmpty || viewModel.title.count <= 2)
-                }
-            }
-            .formStyle(.columns)
-            .padding(16)
-            .frame(width: 250, height: 100)
-            .fixedSize()
+        .sheet(isPresented: $viewModel.isCreatingProject) {
+            sheetView()
         }
         
-        .alert("Error Creating Project", isPresented: $viewModel.error){
+        .alert("Error Creating Project", isPresented: $viewModel.error) {
             Button("Ok"){
                 viewModel.error = false
                 viewModel.isCreatingProject = false
             }
-
         } message: {
             Text("an error Occured trying to create the project, please try again.")
         }
     }
     
-    
-    func removeRow(at offsets: IndexSet){
-        print(offsets)
+    private func ListProjects() -> some View {
+        return List($viewModel.projects, id: \.id, editActions: .delete){ project in
+            
+            ProjectCell(project: project.wrappedValue) {
+                let project = project.wrappedValue
+                if let id = project.id {
+                    openWindow(value: project.id)
+                    dismissWindow()
+                }
+            }
+            .listRowInsets(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -10))
+            .contextMenu{
+                Button("Delete"){
+                    if let id = project.wrappedValue.id {
+                        viewModel.delete(withID: id)
+                    }
+                }
+            }
+        }
+        .clipShape(.rect(cornerRadius: 4))
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .padding(.bottom, 16)
     }
-
+    
+    private func sheetView() -> some View {
+        return Form {
+            Section{
+                TextField(text: $viewModel.title, prompt: Text("Required")) {
+                    Text("Project Title")
+                }
+                
+                Button("Done"){
+                    viewModel.isCreatingProject = false
+                    
+                    guard let proj = viewModel.createNewProject(withTitle: viewModel.title) else {
+                        viewModel.error = true
+                        return
+                    }
+                    openWindow(value: proj.id)
+                }
+                .disabled(viewModel.title.isEmpty || viewModel.title.count <= 2)
+            }
+        }
+        .formStyle(.columns)
+        .padding(16)
+        .frame(width: 250, height: 100)
+        .fixedSize()
+    }
 }
 
 struct ProjectCell: View {
-    var title: String
+    var project: Project
     var action: () -> Void
     
     var body: some View {
-        
-        
         Button(action: {
             action()
         }, label: {
@@ -108,10 +116,10 @@ struct ProjectCell: View {
                 Image(systemName: "movieclapper")
                     .font(.system(size: 20))
                 VStack(alignment: .leading) {
-                    Text(title)
+                    Text(project.title ?? "Error")
                         .lineLimit(1)
                         .truncationMode(.tail)
-                    Text("Last Access: \(Date().formatted(date: .abbreviated, time: .shortened)) ")
+                    Text("Last Access: \(getFormattedDate())")
                 }
                 Spacer()
             }
@@ -123,6 +131,14 @@ struct ProjectCell: View {
     
 
     }
+    
+    func getFormattedDate() -> String {
+        guard let lastAccess = project.lastAccess else {
+            return "ERROR"
+        }
+        return lastAccess.formatted(date: .abbreviated, time: .shortened)
+    }
+    
 }
 
 
@@ -130,41 +146,6 @@ struct ProjectCell: View {
 
 
 #Preview {
-//    var model = ProjectSelectorModel()
-//    model.isCreatingProject = true
     ProjectSelectorView<ProjectSelectorModel>()
         .environment(ProjectSelectorModel())
 }
-
-//Attached to View
-/*
- .fileImporter(isPresented: $isPublishing,
-               allowedContentTypes: [.json]){ result in
-     switch result {
-     case .success(let resultURL):
-         do {
-             
-             if resultURL.startAccessingSecurityScopedResource() {
-                 defer{
-                     resultURL.stopAccessingSecurityScopedResource()
-                 }
-                 throw NSError(domain: "", code: 1)
-                 let readTest = try Data(contentsOf: resultURL)
-                 let newTest = try Test(withData: readTest)
-                 print("secure", readTest, newTest)
-                 return
-             }
-             //MARK: Need to inform that an error occured!
-
-         } catch {
-             print(error.localizedDescription)
-         }
-     case .failure(let failure):
-         print("hey, \(failure)")
-
-     }
-     
- }
- */
-
-
