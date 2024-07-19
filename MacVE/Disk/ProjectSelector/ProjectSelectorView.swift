@@ -17,7 +17,8 @@ struct ProjectSelectorView<T: ProjectSelectorModelProtocol>: View {
                     .padding(.top, 16)
                 
                 Button(action: {
-                    
+                    viewModel.isCreatingProject = true
+                    //  viewModel.createNewProject(withTitle: )
                 }, label: {
                     Label("Create New Project", systemImage: "plus")
                         .font(.system(size: 16))
@@ -30,17 +31,16 @@ struct ProjectSelectorView<T: ProjectSelectorModelProtocol>: View {
                 
                 List($test, id: \.self, editActions: .delete){ idx in
                     ProjectCell(title: "A TITLE NUMBER: \(idx.wrappedValue)"){
-                        
                     }
-                        .listRowInsets(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -10))
-                        .contextMenu{
-                            Button(
-                                action: {
-                                    test.remove(at: idx.wrappedValue)
-                                }, label: {
-                                    Text("delete")
-                                })
-                        }
+                    .listRowInsets(EdgeInsets(top: 0, leading: -10, bottom: 0, trailing: -10))
+                    .contextMenu{
+                        Button(
+                            action: {
+                                test.remove(at: idx.wrappedValue)
+                            }, label: {
+                                Text("delete")
+                            })
+                    }
                 }
                 .clipShape(.rect(cornerRadius: 4))
                 .listStyle(.plain)
@@ -51,6 +51,40 @@ struct ProjectSelectorView<T: ProjectSelectorModelProtocol>: View {
         }
         .frame(width: 350, height: 400)
         .fixedSize()
+        
+        .sheet(isPresented: $viewModel.isCreatingProject){
+            Form {
+                Section{
+                    TextField(text: $viewModel.title, prompt: Text("Required")) {
+                        Text("Project Title")
+                    }
+                    
+                    Button("Done"){
+                        guard let proj = viewModel.createNewProject(withTitle: viewModel.title) else {
+                            viewModel.isCreatingProject = false
+                            viewModel.error = true
+                            return
+                        }
+                        openWindow(value: proj.id)
+                    }
+                    .disabled(viewModel.title.isEmpty || viewModel.title.count <= 2)
+                }
+            }
+            .formStyle(.columns)
+            .padding(16)
+            .frame(width: 250, height: 100)
+            .fixedSize()
+        }
+        
+        .alert("Error Creating Project", isPresented: $viewModel.error){
+            Button("Ok"){
+                viewModel.error = false
+                viewModel.isCreatingProject = false
+            }
+
+        } message: {
+            Text("an error Occured trying to create the project, please try again.")
+        }
     }
     
     
@@ -96,7 +130,10 @@ struct ProjectCell: View {
 
 
 #Preview {
+//    var model = ProjectSelectorModel()
+//    model.isCreatingProject = true
     ProjectSelectorView<ProjectSelectorModel>()
+        .environment(ProjectSelectorModel())
 }
 
 //Attached to View

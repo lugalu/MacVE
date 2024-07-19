@@ -30,6 +30,7 @@
 		09DF213F2C19072400F046A9 /* ResolutionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DF213E2C19072400F046A9 /* ResolutionMenu.swift */; };
 		09F33E9D2C1F50E3000FA92D /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F33E9C2C1F50E3000FA92D /* Math.swift */; };
 		09F33E9F2C1F5104000FA92D /* PlayerOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F33E9E2C1F5104000FA92D /* PlayerOperations.swift */; };
+		09FFF9EE2C4AAE8600003C3A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFF9ED2C4AAE8600003C3A /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		09DF213E2C19072400F046A9 /* ResolutionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionMenu.swift; sourceTree = "<group>"; };
 		09F33E9C2C1F50E3000FA92D /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		09F33E9E2C1F5104000FA92D /* PlayerOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerOperations.swift; sourceTree = "<group>"; };
+		09FFF9ED2C4AAE8600003C3A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 			children = (
 				09C2D9A02C3DF3F5001B0484 /* CustomTypes */,
 				09B9566E2C32215F00AA36CF /* ProjectSelector */,
+				09FFF9ED2C4AAE8600003C3A /* PersistenceController.swift */,
 			);
 			path = Disk;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				09DF213F2C19072400F046A9 /* ResolutionMenu.swift in Sources */,
 				09DF213A2C18F56400F046A9 /* PlaybackModel.swift in Sources */,
 				096A4F8D2C1BBA2C0030D1A4 /* VerticalSlider.swift in Sources */,
+				09FFF9EE2C4AAE8600003C3A /* PersistenceController.swift in Sources */,
 				09C2D9A22C3DF40F001B0484 /* VEProjType.swift in Sources */,
 				09DF21382C18F2BF00F046A9 /* VideoPlayer.swift in Sources */,
 				09DF21352C18F1C800F046A9 /* PlaybackView.swift in Sources */,
@@ -514,7 +518,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -571,7 +575,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -644,7 +648,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G8P85U8XP2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -663,7 +667,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G8P85U8XP2;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.MacVETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
