@@ -147,5 +147,5 @@ struct ProjectCell: View {
 
 #Preview {
     ProjectSelectorView<ProjectSelectorModel>()
-        .environment(ProjectSelectorModel())
+        .environment(ProjectSelectorModel(database: PersistenceController.preview))
 }

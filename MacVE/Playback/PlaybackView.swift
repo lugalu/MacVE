@@ -43,7 +43,7 @@ struct PlaybackView<T: PlaybackModelProtocol>: View {
 
 #Preview {
     PlaybackView<PlaybackModel>()
-        .environment(PlaybackModel())
+        .environment(PlaybackModel(database: PersistenceController.preview, id: UUID()))
 }
 
 

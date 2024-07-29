@@ -10,14 +10,16 @@ struct MacVEApp: App {
         
         WindowGroup("Project Selection"){
             ProjectSelectorView<ProjectSelectorModel>()
-                .environment(ProjectSelectorModel())
+                .environment(ProjectSelectorModel(database: persistance))
         }
         .defaultSize(width: 700, height: 400)
         .windowResizability(.contentSize)
         
         WindowGroup("Project", for: Project.ID.self) { $id in
-            PlaybackView<PlaybackModel>()
-                .environmentObject(PlaybackModel())
+            if let id = $id.wrappedValue?.unsafelyUnwrapped {
+                PlaybackView<PlaybackModel>()
+                    .environmentObject(PlaybackModel(database: persistance, id: id))
+            }
         }
         .commandsRemoved()
         .defaultSize(width: 1200, height: 700)

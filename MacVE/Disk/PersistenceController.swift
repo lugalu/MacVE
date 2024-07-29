@@ -29,7 +29,6 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
 
-        // Create 10 example programming languages.
         for i in 0..<10 {
             let proj = Project(context: controller.context)
             proj.title = "Preview Title \(i)"

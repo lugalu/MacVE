@@ -22,9 +22,13 @@ class ProjectSelectorModel: ObservableObject, Observable, ProjectSelectorModelPr
     @Published var title: String = ""
     @Published var error: Bool = false
     @Published var projects: [Project] = []
+    private var database: PersistenceController
+    
+    init(database: PersistenceController) {
+        self.database = database
+    }
     
     func createNewProject(withTitle title: String) -> Project? {
-        let database = PersistenceController.shared
         let newProject = Project(context: database.context)
         newProject.title = title
         newProject.lastAccess = Date()
@@ -42,7 +46,6 @@ class ProjectSelectorModel: ObservableObject, Observable, ProjectSelectorModelPr
     }
     
     func fetchProjects() {
-        let database = PersistenceController.shared
         do {
             projects = try database.fetch()
             projects = sort()
@@ -53,7 +56,6 @@ class ProjectSelectorModel: ObservableObject, Observable, ProjectSelectorModelPr
     }
     
     func delete(withID id: UUID){
-        let database = PersistenceController.shared
         do{
             try database.delete(id)
             fetchProjects()
