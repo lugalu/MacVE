@@ -48,7 +48,6 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
             guard let composition = project.composition else {
                 fatalError("Can't access composition")
             }
-            print(composition.tracks)
             let item = AVPlayerItem(asset: composition)
             player.replaceCurrentItem(with: item)
         }catch {

@@ -8,8 +8,9 @@ struct ResolutionMenu: View {
     @Binding var resolution: PlaybackResolution
     
     var body: some View {
-        HStack {
+        HStack() {
             Text("Resolution:")
+                .lineLimit(1)
             Menu {
                 ForEach(PlaybackResolution.allCases, id: \.self){ value in
                     Button(action: {
@@ -19,12 +20,11 @@ struct ResolutionMenu: View {
                     })
                 }
             } label: {
-                
                 Label(resolution.rawValue, systemImage: "")
                     .labelStyle(.titleOnly)
             }
             .menuStyle(.button)
-            .frame(width: 160)
+            .frame(maxWidth: 64)
         }
     }
 }

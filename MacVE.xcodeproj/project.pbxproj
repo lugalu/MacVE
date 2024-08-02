@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		091B25602C263B1400E0A2FD /* ResolutionChangerCompositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B255F2C263B1400E0A2FD /* ResolutionChangerCompositor.swift */; };
 		091B25622C263BB700E0A2FD /* ResolutionSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B25612C263BB700E0A2FD /* ResolutionSyncer.swift */; };
+		094AAA1C2C5D894D0016E049 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AAA1B2C5D894D0016E049 /* EditorView.swift */; };
 		096A4F8B2C1BAE680030D1A4 /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */; };
 		096A4F8D2C1BBA2C0030D1A4 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */; };
 		098FFA582C473E4D000D3821 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 098FFA562C473E4D000D3821 /* Main.xcdatamodeld */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		091B255F2C263B1400E0A2FD /* ResolutionChangerCompositor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionChangerCompositor.swift; sourceTree = "<group>"; };
 		091B25612C263BB700E0A2FD /* ResolutionSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionSyncer.swift; sourceTree = "<group>"; };
+		094AAA1B2C5D894D0016E049 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		096A4F8A2C1BAE680030D1A4 /* VolumeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControl.swift; sourceTree = "<group>"; };
 		096A4F8C2C1BBA2C0030D1A4 /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		098FFA572C473E4D000D3821 /* test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = test.xcdatamodel; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		09DF21322C18F1B900F046A9 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				094AAA1B2C5D894D0016E049 /* EditorView.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				091B25602C263B1400E0A2FD /* ResolutionChangerCompositor.swift in Sources */,
 				09F33E9D2C1F50E3000FA92D /* Math.swift in Sources */,
 				09F33E9F2C1F5104000FA92D /* PlayerOperations.swift in Sources */,
+				094AAA1C2C5D894D0016E049 /* EditorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

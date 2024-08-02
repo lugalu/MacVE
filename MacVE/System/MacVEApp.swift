@@ -15,15 +15,21 @@ struct MacVEApp: App {
         .defaultSize(width: 700, height: 400)
         .windowResizability(.contentSize)
         
-        WindowGroup("Project", for: Project.ID.self) { $id in
-            if let id = $id.wrappedValue?.unsafelyUnwrapped {
-                PlaybackView<PlaybackModel>()
-                    .environmentObject(PlaybackModel(database: persistance, id: id))
+        WindowGroup("Project", id: "ProjectView", for: Project.ID.self) { $id in
+            if let id = $id.wrappedValue?.unsafelyUnwrapped,
+               let viewModel = EditorViewModel(persistance: persistance, projectID: id) {
+               EditorView(viewModel: viewModel)
+                    .onAppear{
+                        print(id, viewModel)
+                    }
+                    .frame(minWidth: 1200, minHeight: 700)
+            }else{
+                EmptyView()
             }
         }
         .commandsRemoved()
         .defaultSize(width: 1200, height: 700)
-        .windowResizability(.contentSize)
+        .windowResizability(.contentMinSize)
     }
 }
 

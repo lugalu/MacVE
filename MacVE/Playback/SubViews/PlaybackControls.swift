@@ -15,7 +15,7 @@ struct PlaybackControls: View {
     var action: (PlaybackCommands) -> Void
     
     var body: some View {
-        HStack(spacing: 10){
+        HStack() {
             Group{
                 Button(action: {
                     action(.backwardEnd)
@@ -25,20 +25,23 @@ struct PlaybackControls: View {
                 
                 Button(action: {
                     action(.backward)
-
+                    
                 }, label: {
                     Image(systemName: "backward.fill")
                 })
+                
                 Button(action: {
                     action(.playPause)
                 }, label: {
                     Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                 })
+                
                 Button(action: {
                     action(.foward)
                 }, label: {
                     Image(systemName: "forward.fill")
                 })
+                
                 Button(action: {
                     action(.fowardEnd)
                 }, label: {
@@ -48,8 +51,8 @@ struct PlaybackControls: View {
             }
             .buttonStyle(PlainButtonStyle())
         }
-        
     }
+        
 }
 
 #Preview {
