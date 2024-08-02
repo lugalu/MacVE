@@ -15,35 +15,29 @@ struct PlaybackView<T: PlaybackModelProtocol>: View {
             
             makeControls()
         }
-        .padding(8)
     }
     
     
     func makeControls() -> some View {
-        HStack{
-            Group{
-                //TODO: remove this and insert Spacer!
-                Button(action: {
-                    viewModel.loadVideo()
-                }, label: {
-                    Text("Load Video")
-                })
-                
-                PlaybackControls(isPlaying: viewModel.isPlaying,
-                                 action: viewModel.playback)
-                VolumeControl(sliderValue: $viewModel.volumeLevel)
-                
-                ResolutionMenu(resolution: $viewModel.resolution)
-            }
-            .frame(maxWidth: .infinity)
+        HStack(spacing: 32) {
+            
+            PlaybackControls(isPlaying: viewModel.isPlaying,
+                             action: viewModel.playback)
+            
+            ResolutionMenu(resolution: $viewModel.resolution)
+            
+            VolumeControl(sliderValue: $viewModel.volumeLevel)
+            
         }
+        
     }
+
     
 }
 
 #Preview {
     PlaybackView<PlaybackModel>()
-        .environment(PlaybackModel())
+        .environment(PlaybackModel(database: PersistenceController.preview, id: UUID()))
 }
 
 

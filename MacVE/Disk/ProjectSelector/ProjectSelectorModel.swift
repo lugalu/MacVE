@@ -1,52 +1,72 @@
 //Created by Lugalu on 09/07/24.
 
 import SwiftUI
+import AVKit
 
 @MainActor
 protocol ProjectSelectorModelProtocol: ObservableObject {
-    var isOpeningFile: Bool { get set }
     var isCreatingProject: Bool { get set }
+    var title: String {get set}
+    var error: Bool {get set}
+    var projects: [Project] {get set}
     
-    func handleFileOpening(with: Result<URL, any Error>) -> VEProjectType?
-    //func createNewProject(at: URL)
-    
+    func createNewProject(withTitle: String) -> Project?
+    func fetchProjects()
+    func delete(withID: UUID)
 }
 
 
+
 class ProjectSelectorModel: ObservableObject, Observable, ProjectSelectorModelProtocol {
-    @Published var isOpeningFile: Bool = false
-    @Published var isCreatingProject: Bool = true
+    @Published var isCreatingProject: Bool = false
+    @Published var title: String = ""
+    @Published var error: Bool = false
+    @Published var projects: [Project] = []
+    private var database: PersistenceController
     
+    init(database: PersistenceController) {
+        self.database = database
+    }
     
-    
-    
-    
-    func handleFileOpening(with result: Result<URL, any Error>) -> VEProjectType? {
-        switch result {
-        case .success(let resultURL):
-            do {
-                if resultURL.startAccessingSecurityScopedResource() {
-                    defer{
-                        resultURL.stopAccessingSecurityScopedResource()
-                    }
-                    let diskData = try Data(contentsOf: resultURL)
-                    guard let project = try VEProjectType(withData: diskData) else {
-                        fatalError("ops")
-                    }
-                
-                    return project
-                }
-                //MARK: Need to inform that an error occured!
-
-            } catch {
-                print(error.localizedDescription)
-                return nil
-            }
-        case .failure(let failure):
-            print("hey, \(failure)")
+    func createNewProject(withTitle title: String) -> Project? {
+        let newProject = Project(context: database.context)
+        newProject.title = title
+        newProject.lastAccess = Date()
+        newProject.id = UUID()
+        newProject.composition = AVMutableComposition()
+        
+        do{
+            try database.save()
+        }catch {
             return nil
-
         }
-        return nil
+        projects.append(newProject)
+        projects = sort()
+        return newProject
+    }
+    
+    func fetchProjects() {
+        do {
+            projects = try database.fetch()
+            projects = sort()
+        }catch{
+            //TODO: Throw!
+            fatalError("hm \(error.localizedDescription)")
+        }
+    }
+    
+    func delete(withID id: UUID){
+        do{
+            try database.delete(id)
+            fetchProjects()
+        }catch{
+            //TODO: Show error!
+            fatalError("ops: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    func sort() -> [Project] {
+        return projects.sorted(by: { $0.lastAccess ?? Date() > $1.lastAccess ?? Date() })
     }
 }

@@ -20,6 +20,7 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
     @Published var player: AVPlayer = AVPlayer()
     @Published var isPlaying: Bool = false
     @Published var command: PlaybackCommands? = nil
+    
     @Published var resolution: PlaybackResolution = ResolutionSyncer.currentResolution {
         didSet{
             ResolutionSyncer.currentResolution = resolution
@@ -32,7 +33,26 @@ class PlaybackModel: ObservableObject, Observable, PlaybackModelProtocol {
         }
     }
     
-    init(){
+    private var database: PersistenceController
+    private var project: Project
+    
+    init(database: PersistenceController, id: UUID){
+        self.database = database
+        do {
+            guard let project = try database.fetch(id) else {
+                fatalError("Failed to find project with ID")
+            }
+            
+            self.project = project
+            
+            guard let composition = project.composition else {
+                fatalError("Can't access composition")
+            }
+            let item = AVPlayerItem(asset: composition)
+            player.replaceCurrentItem(with: item)
+        }catch {
+            fatalError("Failed to access Database")
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(onPlayerEnd), name: AVPlayerItem.didPlayToEndTimeNotification, object: player.currentItem)
     }
     
